@@ -7,9 +7,9 @@
                     <div class="divider bg-success"></div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-1.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -22,9 +22,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-2.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -37,9 +37,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-3.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -59,9 +59,9 @@
                     <div class="divider bg-success"></div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-1.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -74,9 +74,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-2.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -89,9 +89,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-3.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -111,9 +111,9 @@
                     <div class="divider bg-success"></div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-1.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -126,9 +126,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-2.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>
@@ -141,9 +141,9 @@
                     </div>
 
                     <div class="blog-item">
-                        <a class="post-thumb" href="">
+                        {{-- <a class="post-thumb" href="">
                             <img src="../assets/img/blog/blog-3.jpg" alt="">
-                        </a>
+                        </a> --}}
                         <div class="content">
                             <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
                                     no control</a></h6>

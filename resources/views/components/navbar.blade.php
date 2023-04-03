@@ -1,9 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
     <div class="container">
         <a href="#" class="navbar-brand">
-            <img src="https://www.upr.ac.id/assets/images/foto/1.png" style="width: 50px;" alt="" srcset="">
-            {{-- PERPUSTAKAAN --}}
-            <span class="text-primary">UPR</span>
+            <img src="{{ asset('assets/img/Perpustakaan (2).png') }}" style="width: 200px; object-fit: contain;">
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -20,12 +18,9 @@
                         Profil
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Sejarah Perpustakaan UPR</a>
-                        <a class="dropdown-item" href="#">Video Perpustakaan UPR</a>
-                        <a class="dropdown-item" href="#">Tim Manajemen</a>
-                        <a class="dropdown-item" href="#">Renstra Di Lingkungan UPR</a>
-                        <a class="dropdown-item" href="#">Staf Perpustakaan</a>
-                        <a class="dropdown-item" href="#">Forum Pustakawan UPR</a>
+                        <a class="dropdown-item" href="/sejarah">Sejarah Perpustakaan UPR</a>
+                        <a class="dropdown-item" href="/tim-manajemen">Tim Manajemen</a>
+                        <a class="dropdown-item" href="/staf-perpustakaan">Staf Perpustakaan</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

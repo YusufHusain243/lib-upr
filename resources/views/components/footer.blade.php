@@ -1,46 +1,45 @@
 <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
     <div class="container">
         <div class="row mb-5">
-            <div class="col-lg-3 py-3">
-                <h3>SEOGram</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis
-                    in iusto eligendi iure.</p>
+            <div class="col-lg-4 py-3">
+                <h3>Universitas Palangka Raya</h3>
+                <p>
+                    KAMPUS UPR TANJUNG NYAHO
+                    ALAMAT: <br>
+                    Jln. Yos Sudarso Palangka Raya
+                    73111, Kalimantan Tengah
+                </p>
 
-                <div class="social-media-button">
-                    <a href="#"><span class="mai-logo-facebook-f"></span></a>
-                    <a href="#"><span class="mai-logo-twitter"></span></a>
-                    <a href="#"><span class="mai-logo-google-plus-g"></span></a>
-                    <a href="#"><span class="mai-logo-instagram"></span></a>
-                    <a href="#"><span class="mai-logo-youtube"></span></a>
-                </div>
+                <a href="">
+                    email: info@upr.ac.id
+                </a>
             </div>
-            <div class="col-lg-3 py-3">
-                <h5>Company</h5>
+            <div class="col-lg-5 py-3">
+                <h5>Websites UPR</h5>
                 <ul class="footer-menu">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Career</a></li>
-                    <li><a href="#">Advertise</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Help & Support</a></li>
+                    <li><a href="#">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</a></li>
+                    <li><a href="#">FAKULTAS EKONOMI</a></li>
+                    <li><a href="#">FAKULTAS PERTANIAN</a></li>
+                    <li><a href="#">FAKULTAS TEKNIK</a></li>
+                    <li><a href="#">FAKULTAS HUKUM</a></li>
+                    <li><a href="#">FAKULTAS ILMU SOSIAL DAN POLITIK</a></li>
+                    <li><a href="#">FAKULTAS KEDOKTERAN</a></li>
+                    <li><a href="#">FAKULTAS MATEMATIKA DAN ILMU PENGTAHUAN ALAM</a></li>
+                    <li><a href="#">PROGRAM PASCA SARJANA</a></li>
                 </ul>
             </div>
             <div class="col-lg-3 py-3">
-                <h5>Contact Us</h5>
-                <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
-                <a href="#" class="footer-link">+00 1122 3344 5566</a>
-                <a href="#" class="footer-link">seogram@temporary.com</a>
-            </div>
-            <div class="col-lg-3 py-3">
-                <h5>Newsletter</h5>
-                <p>Get updates, news or events on your mail.</p>
-                <form action="#">
-                    <input type="text" class="form-control" placeholder="Enter your email..">
-                    <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
-                </form>
+                <h5>UNIT PELAYANAN TEKNIS & LEMBAGA</h5>
+                <ul class="footer-menu">
+                    <li><a href="#">UPT. TIK</a></li>
+                    <li><a href="#">UPT. BAHASA</a></li>
+                    <li><a href="#">LPPM</a></li>
+                    <li><a href="#">LP3MP</a></li>
+                    <li><a href="#">CIMTROP</a></li>
+                </ul>
             </div>
         </div>
 
-        <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a
-                href="https://macodeid.com/" target="_blank">MACode ID</a></p>
+        <p class="text-center" id="copyright">Copyright &copy; 2023. UPT TIK UPR</p>
     </div>
 </footer>

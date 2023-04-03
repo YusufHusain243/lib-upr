@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('modules/home/home');
+});
+
+Route::get('/sejarah', function () {
+    return view('modules/sejarah/sejarah');
+});
+
+Route::get('/tim-manajemen', function () {
+    return view('modules/tim_manajemen/tim_manajemen');
+});
+
+Route::get('/staf-perpustakaan', function () {
+    return view('modules/staf_perpustakaan/staf_perpustakaan');
 });

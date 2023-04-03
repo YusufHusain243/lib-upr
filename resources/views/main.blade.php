@@ -18,12 +18,11 @@
     <div class="back-to-top"></div>
     <header>
         @include('components/navbar')
-        @include('components/banner')
+        @yield('banner')
     </header>
 
-    @include('components/menu')
-    @include('components/information')
-    @include('components/gallery')
+    @yield('content')
+
     @include('components/footer')
 
     <script src="{{ asset('/assets/js/jquery-3.5.1.min.js') }}"></script>
