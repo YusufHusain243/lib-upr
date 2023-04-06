@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\JejaringController;
@@ -23,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages/home');
-});
+Route::get('/', [DashboardController::class, 'dashboard']);
 
 Route::get('/sejarah', function () {
     return view('pages/sejarah');
@@ -60,9 +59,10 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/kelola-menu', [MenuController::class, 'index']);
-Route::get('/edit-menu', function () {
-    return view('admin/pages/menu/edit_menu');
-});
+Route::post('/kelola-menu', [MenuController::class, 'store']);
+Route::delete('/kelola-menu/{id}', [MenuController::class, 'destroy']);
+Route::get('/kelola-menu/{id}', [MenuController::class, 'edit']);
+Route::patch('/kelola-menu/{id}', [MenuController::class, 'update']);
 
 Route::get('/kelola-pengumuman', [PengumumanController::class, 'index']);
 Route::get('/edit-pengumuman', function () {
