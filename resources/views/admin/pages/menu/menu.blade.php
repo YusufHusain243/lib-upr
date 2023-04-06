@@ -24,21 +24,24 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Menu</h3>
                     </div>
-                    <form>
+                    <form method="POST" action="/kelola-menu" enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama Menu</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Menu">
+                                <label for="nama">Nama Menu</label>
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan Nama Menu">
                             </div>
                             <div class="form-group">
                                 <label for="url">URL Menu</label>
-                                <input type="text" class="form-control" id="url" placeholder="Masukkan URL Menu">
+                                <input type="text" class="form-control" id="url" name="url"
+                                    placeholder="Masukkan URL Menu">
                             </div>
                             <div class="form-group">
                                 <label for="logo_menu">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="logo_menu">
+                                        <input type="file" class="custom-file-input" id="logo_menu" name="logo_menu">
                                         <label class="custom-file-label" for="logo_menu">Choose file</label>
                                     </div>
                                 </div>
@@ -68,21 +71,36 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Menu 1</td>
-                                            <td>https://www.google.com</td>
-                                            <td>
-                                                <img src="{{ asset('/assets/img/tes.jpeg') }}" alt=""
-                                                    srcset="">
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="/edit-menu" type="button" class="btn btn-warning">Edit</a>
-                                                    <a href="/delete-menu" type="button" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->nama }}</td>
+                                                <td>
+                                                    <a href="{{ $d->url }}">{{ $d->url }}</a>
+                                                </td>
+                                                <td>
+                                                    <img src="storage/images/{{ $d->logo }}" width="50"
+                                                        alt="" srcset="">
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div>
+                                                            <a href="/kelola-menu/{{$d->id}}" type="button"
+                                                                class="btn btn-warning">Edit</a>
+                                                        </div>
+                                                        <form action="/kelola-menu/{{ $d->id }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                onclick="return confirm('Yakin Hapus Menu Ini?');"
+                                                                class="btn btn-danger">
+                                                                Hapus
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

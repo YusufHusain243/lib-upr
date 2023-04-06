@@ -8,20 +8,23 @@
     <div class="page-section" id="menu">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section"><strong>Our Menu</strong></h2>
+                <h2 class="title-section"><strong>Menu Kami</strong></h2>
                 <div class="divider mx-auto"></div>
             </div>
             <div class="row">
-                <div class="col-lg-3">
-                    <a href="">
-                        <div class="card-service wow fadeInUp" style="height: 250px; background-color:#043507">
-                            <div class="body">
-                                <img src="{{asset('/assets/img/tes.jpeg')}}" class="img-fluid mb-3" height="150px" width="150px">
-                                <h6 style="color: #fbe03d">SLIMS</h6>
+                @foreach ($data as $d)
+                    <div class="col-lg-3">
+                        <a href="{{ $d->url }}" target="_blank">
+                            <div class="card-service wow fadeInUp" style="height: 250px; background-color:#043507">
+                                <div class="body">
+                                    <img src="storage/images/{{ $d->logo }}" class="mb-3" height="140px"
+                                        width="140px">
+                                    <h6 style="color: #fbe03d">{{ $d->nama }}</h6>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

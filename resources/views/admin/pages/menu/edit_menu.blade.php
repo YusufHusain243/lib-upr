@@ -24,21 +24,23 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Menu</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-menu/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama Menu</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Menu">
+                                <label for="nama">Nama Menu</label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                             </div>
                             <div class="form-group">
                                 <label for="url">URL Menu</label>
-                                <input type="text" class="form-control" id="url" placeholder="Masukkan URL Menu">
+                                <input type="text" class="form-control" id="url" name="url" value="{{$data->url}}">
                             </div>
                             <div class="form-group">
                                 <label for="logo_menu">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="logo_menu">
+                                        <input type="file" class="custom-file-input" id="logo_menu" name="logo_menu" value="{{$data->logo}}">
                                         <label class="custom-file-label" for="logo_menu">Choose file</label>
                                     </div>
                                 </div>
