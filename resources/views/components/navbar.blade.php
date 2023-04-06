@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
     <div class="container">
-        <a href="#" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <img src="{{ asset('assets/img/Perpustakaan (2).png') }}" style="width: 200px; object-fit: contain;">
         </a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
@@ -26,32 +26,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                         aria-expanded="false">
-                        E-Resources
+                        Sumber Internal
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Sumber Internal</a>
-                        <a class="dropdown-item" href="#">Katalog Jurnal Online Terpadu</a>
-                        <a class="dropdown-item" href="#">Database, Jurnal Elektronik, Dan Buku Elektronik</a>
-                        <a class="dropdown-item" href="#">Buku Elektronik</a>
-                        <a class="dropdown-item" href="#">Open Access E-Resources</a>
-                        <a class="dropdown-item" href="#">Trial Akses</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Panduan
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Pedoman Akses E-Resources Dari Luar Kampus</a>
-                        <a class="dropdown-item" href="#">Perpustakaan UPR</a>
-                        <a class="dropdown-item" href="#">Layanan</a>
+                        <a class="dropdown-item" href="#">SLIMS</a>
+                        <a class="dropdown-item" href="http://repository.upr.ac.id/" target="_blank">E-Repository</a>
+                        <a class="dropdown-item" href="https://e-journal.upr.ac.id/" target="_blank">E-Journal</a>
                         <a class="dropdown-item" href="#">Unggah Mandiri</a>
-                        <a class="dropdown-item" href="#">Penelusuran Informasi</a>
-                        <a class="dropdown-item" href="#">Koleksi</a>
-                        <a class="dropdown-item" href="#">Akses Internet</a>
-                        <a class="dropdown-item" href="#">Penulisan</a>
-                        <a class="dropdown-item" href="#">Akses Portal SNI Corner</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -60,7 +41,7 @@
                         Jejaring
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Jaringan Kerjasama Perpustakaan UPR</a>
+                        <a class="dropdown-item" href="/jejaring">Jaringan Kerjasama Perpustakaan UPR</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -69,33 +50,7 @@
                         Bantuan
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">FAQ</a>
-                        <a class="dropdown-item" href="#">Bantuan Layanan ETD & Turnitin</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Unduh
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">laporan Survei Kepuasan Masyarakat (SKM)</a>
-                        <a class="dropdown-item" href="#">Laporan Perpustakaan Universitas Palangka Raya</a>
-                        <a class="dropdown-item" href="#">Keputusan Rektor UPR, Tentang Kewajiban Unggah Mandiri
-                            Karya Akhir Mahasiswa</a>
-                        <a class="dropdown-item" href="#">Pedoman Pengajuan dan Penilaian Angka Kredit
-                            Pustakawan</a>
-                        <a class="dropdown-item" href="#">Surat Pernyataan Permintaan Tugas Akhir</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Bantuan
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">International Student Support</a>
-                        <a class="dropdown-item" href="#">Individual Academic Consultation</a>
+                        <a class="dropdown-item" href="/faq">FAQ</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

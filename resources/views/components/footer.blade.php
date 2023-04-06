@@ -15,7 +15,7 @@
                 </a>
             </div>
             <div class="col-lg-5 py-3">
-                <h5>Websites UPR</h5>
+                <h5>WEBSITES UPR</h5>
                 <ul class="footer-menu">
                     <li><a href="#">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</a></li>
                     <li><a href="#">FAKULTAS EKONOMI</a></li>
