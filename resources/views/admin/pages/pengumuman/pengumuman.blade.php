@@ -24,20 +24,21 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Pengumuman</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-pengumuman" method="POST">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Judul Pengumuman</label>
-                                <input type="text" class="form-control" id="title"
+                                <label for="judul">Judul Pengumuman</label>
+                                <input type="text" class="form-control" id="judul" name="judul"
                                     placeholder="Masukkan Judul Pengumuman">
                             </div>
                             <div class="form-group">
-                                <label for="date">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="date">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
                             </div>
                             <div class="form-group">
                                 <label for="pengumuman">Pengumuman</label>
-                                <textarea id="pengumuman">
+                                <textarea id="pengumuman" name="pengumuman">
                                     Place <em>some</em> <u>text</u> <strong>here</strong>
                                 </textarea>
                             </div>
@@ -66,25 +67,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Pengumuman 1</td>
-                                            <td>20/20/2001</td>
-                                            <td>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptates
-                                                quibusdam tempore facere vitae molestias quia voluptatem eveniet quae vel
-                                                ipsum perspiciatis corporis quisquam quo, blanditiis officia repellendus
-                                                laboriosam sunt!
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="/edit-pengumuman" type="button" class="btn btn-warning">Edit</a>
-                                                    <a href="/delete-pengumuman" type="button"
-                                                        onclick="return confirm('Are you sure you want to delete this item?');"
-                                                        class="btn btn-danger">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->judul }}</td>
+                                                <td>{{ $d->tanggal }}</td>
+                                                <td>
+                                                    {!! $d->isi !!}
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div>
+                                                            <a href="/kelola-pengumuman/{{ $d->id }}" type="button"
+                                                                class="btn btn-warning">Edit</a>
+                                                        </div>
+                                                        <form action="/kelola-pengumuman/{{ $d->id }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                onclick="return confirm('Yakin Hapus Pengumuman Ini?');"
+                                                                class="btn btn-danger">
+                                                                Hapus
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

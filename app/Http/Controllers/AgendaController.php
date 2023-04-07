@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
-use App\Http\Requests\StoreAgendaRequest;
-use App\Http\Requests\UpdateAgendaRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AgendaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = Agenda::all();
@@ -22,69 +17,97 @@ class AgendaController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required|unique:agendas',
+                'tanggal' => 'required',
+                'agenda' => 'required',
+            ],
+            [
+                'judul.required' => 'Judul tidak boleh kosong',
+                'judul.unique' => 'Judul menu sudah ada',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'agenda.required' => 'Agenda tidak boleh kosong',
+            ]
+        );
+
+
+        if ($validator) {
+            $result = Agenda::create([
+                'judul' => $request->judul,
+                'tanggal' => $request->tanggal,
+                'isi' => $request->agenda,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-agenda')->with('AgendaSuccess', 'Tambah Agenda Berhasil');
+            }
+            return redirect('/kelola-agenda')->with('AgendaError', 'Tambah Agenda Gagal');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAgendaRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreAgendaRequest $request)
+    public function edit($id)
     {
-        //
+        $data = Agenda::findOrFail($id);
+        return view('admin/pages/agenda/edit_agenda', [
+            'page' => 'kelola-agenda',
+            'data' => $data,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Agenda  $agenda
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Agenda $agenda)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required|unique:agendas',
+                'tanggal' => 'required',
+                'agenda' => 'required',
+            ],
+            [
+                'judul.required' => 'Judul tidak boleh kosong',
+                'judul.unique' => 'Judul menu sudah ada',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'agenda.required' => 'Agenda tidak boleh kosong',
+            ]
+        );
+
+        if ($validator) {
+            $data = Agenda::findOrFail($id);
+
+            $result = $data->update([
+                'judul' => $request->judul,
+                'tanggal' => $request->tanggal,
+                'isi' => $request->agenda,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-agenda')->with('AgendaSuccess', 'Edit Agenda Berhasil');
+            }
+            return redirect('/kelola-agenda')->with('AgendaError', 'Edit Agenda Gagal');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Agenda  $agenda
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Agenda $agenda)
+    public function destroy($id)
     {
-        //
+        $data = Agenda::findOrFail($id);
+        if ($data) {
+            $result = $data->delete();
+            if ($result) {
+                return redirect('/kelola-agenda')->with('AgendaSuccess', 'Hapus Data Berhasil');
+            }
+            return redirect('/kelola-agenda')->with('AgendaError', 'Hapus Data Gagal');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAgendaRequest  $request
-     * @param  \App\Models\Agenda  $agenda
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateAgendaRequest $request, Agenda $agenda)
+    public function read($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Agenda  $agenda
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Agenda $agenda)
-    {
-        //
+        $data = Agenda::findOrFail($id);
+        return view('pages/agenda', [
+            'data' => $data,
+        ]);
     }
 }

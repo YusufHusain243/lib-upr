@@ -24,21 +24,22 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Pengumuman</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-pengumuman/{{$data->id}}" method="POST">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Judul Pengumuman</label>
-                                <input type="text" class="form-control" id="title"
-                                    placeholder="Masukkan Judul Pengumuman">
+                                <label for="judul">Judul Pengumuman</label>
+                                <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
                             </div>
                             <div class="form-group">
-                                <label for="date">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="date">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
                             </div>
                             <div class="form-group">
                                 <label for="pengumuman">Pengumuman</label>
-                                <textarea id="pengumuman">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
+                                <textarea id="pengumuman" name="pengumuman">
+                                    {!!$data->isi!!}
                                 </textarea>
                             </div>
                         </div>

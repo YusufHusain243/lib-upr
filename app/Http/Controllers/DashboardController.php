@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agenda;
+use App\Models\Berita;
 use App\Models\Menu;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $data = Menu::all();
+        $menu = Menu::all();
+        $pengumuman = Pengumuman::all();
+        $berita = Berita::all();
+        $agenda = Agenda::all();
         return view('pages/home', [
-            'page' => 'home',
-            'data' => $data,
+            'menu' => $menu,
+            'pengumuman' => $pengumuman,
+            'berita' => $berita,
+            'agenda' => $agenda,
         ]);
     }
 }
