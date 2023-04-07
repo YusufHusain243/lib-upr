@@ -24,25 +24,27 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Tim Manajemen</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-tim-manajemen/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama">
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                             </div>
                             <div class="form-group">
                                 <label for="jabatan">Jabatan</label>
-                                <input type="text" class="form-control" id="jabatan" placeholder="Masukkan Jabatan">
+                                <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{$data->jabatan}}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Masukkan Email">
+                                <input type="email" class="form-control" id="email" name="email" value="{{$data->email}}">
                             </div>
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="foto">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto" value="{{$data->foto}}">
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>

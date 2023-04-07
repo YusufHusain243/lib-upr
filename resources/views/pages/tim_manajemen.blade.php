@@ -15,46 +15,16 @@
                         <h4 class="widget-title">Tim Manajemen</h4>
                         <div class="divider"></div>
                         <div class="post-content">
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="text-dark"><strong>Plt. Kepala</strong></h6>
-                                    <h6 class="post-title">Lorem Ipsum</h6>
-                                    <h6>Email : <a href="#">email@gmail.com</a></h6>
+                            @foreach ($data as $d)
+                                <div class="blog-item">
+                                    <img src="/storage/images/{{$d->foto}}" class="post-thumb">
+                                    <div class="content ml-5">
+                                        <h6 class="text-dark"><strong>{{$d->nama}}</strong></h6>
+                                        <h6 class="post-title">{{$d->jabatan}}</h6>
+                                        <h6>Email : <a href="#">{{$d->email}}</a></h6>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="text-dark"><strong>Plt. Kepala</strong></h6>
-                                    <h6 class="post-title">Lorem Ipsum</h6>
-                                    <h6>Email : <a href="#">email@gmail.com</a></h6>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="text-dark"><strong>Plt. Kepala</strong></h6>
-                                    <h6 class="post-title">Lorem Ipsum</h6>
-                                    <h6>Email : <a href="#">email@gmail.com</a></h6>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content">
-                                    <h6 class="text-dark"><strong>Plt. Kepala</strong></h6>
-                                    <h6 class="post-title">Lorem Ipsum</h6>
-                                    <h6>Email : <a href="#">email@gmail.com</a></h6>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

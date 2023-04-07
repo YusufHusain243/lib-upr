@@ -30,10 +30,7 @@ Route::get('/berita/{id}', [BeritaController::class, 'read']);
 Route::get('/agenda/{id}', [AgendaController::class, 'read']);
 Route::get('/galeri/{page}', [GaleriController::class, 'more']);
 Route::get('/sejarah', [SejarahController::class, 'read']);
-
-Route::get('/tim-manajemen', function () {
-    return view('pages/tim_manajemen');
-});
+Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
 
 Route::get('/staf-perpustakaan', function () {
     return view('pages/staf_perpustakaan');
@@ -96,9 +93,10 @@ Route::post('/kelola-sejarah', [SejarahController::class, 'store']);
 Route::patch('/kelola-sejarah/{id}', [SejarahController::class, 'update']);
 
 Route::get('/kelola-tim-manajemen', [TimManajemenController::class, 'index']);
-Route::get('/edit-tim-manajemen', function () {
-    return view('admin/pages/tim_manajemen/edit_tim_manajemen');
-});
+Route::post('/kelola-tim-manajemen', [TimManajemenController::class, 'store']);
+Route::delete('/kelola-tim-manajemen/{id}', [TimManajemenController::class, 'destroy']);
+Route::get('/kelola-tim-manajemen/{id}', [TimManajemenController::class, 'edit']);
+Route::patch('/kelola-tim-manajemen/{id}', [TimManajemenController::class, 'update']);
 
 Route::get('/kelola-staf', [StafPerpustakaanController::class, 'index']);
 
