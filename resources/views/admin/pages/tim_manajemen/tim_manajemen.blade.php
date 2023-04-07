@@ -24,25 +24,29 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Tim Manajemen</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-tim-manajemen" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama">
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan Nama">
                             </div>
                             <div class="form-group">
                                 <label for="jabatan">Jabatan</label>
-                                <input type="text" class="form-control" id="jabatan" placeholder="Masukkan Jabatan">
+                                <input type="text" class="form-control" id="jabatan" name="jabatan"
+                                    placeholder="Masukkan Jabatan">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Masukkan Email">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Masukkan Email">
                             </div>
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="foto">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto">
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
@@ -73,22 +77,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Tim 1</td>
-                                            <td>Plt. Kepala</td>
-                                            <td>gmail@gmail.com</td>
-                                            <td>
-                                                <img src="{{ asset('/assets/img/tes.jpeg') }}" alt=""
-                                                    srcset="">
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="/edit-tim-manajemen" type="button" class="btn btn-warning">Edit</a>
-                                                    <a href="/delete-tim-manajemen" type="button" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->nama }}</td>
+                                                <td>{{ $d->jabatan }}</td>
+                                                <td>{{ $d->email }}</td>
+                                                <td>
+                                                    <img src="storage/images/{{ $d->foto }}" height="100px">
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div>
+                                                            <a href="/kelola-tim-manajemen/{{ $d->id }}" type="button"
+                                                                class="btn btn-warning">Edit</a>
+                                                        </div>
+                                                        <form action="/kelola-tim-manajemen/{{ $d->id }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                onclick="return confirm('Yakin Hapus Tim Manajemen Ini?');"
+                                                                class="btn btn-danger">
+                                                                Hapus
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

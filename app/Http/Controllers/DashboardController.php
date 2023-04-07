@@ -7,6 +7,7 @@ use App\Models\Berita;
 use App\Models\Galeri;
 use App\Models\Menu;
 use App\Models\Pengumuman;
+use App\Models\TimManajemen;
 
 class DashboardController extends Controller
 {
@@ -22,7 +23,7 @@ class DashboardController extends Controller
             'pengumuman' => $pengumuman,
             'berita' => $berita,
             'agenda' => $agenda,
-            'galeri' => $galeri,
+            'galeri' => $galeri
         ]);
     }
 }
