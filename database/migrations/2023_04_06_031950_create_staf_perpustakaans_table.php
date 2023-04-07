@@ -16,8 +16,7 @@ class CreateStafPerpustakaansTable extends Migration
         Schema::create('staf_perpustakaans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nama');
-            $table->foreignId('id_unit')->constrained('unit_stafs')->onDelete('cascade');
+            $table->longText('staf');
         });
     }
 

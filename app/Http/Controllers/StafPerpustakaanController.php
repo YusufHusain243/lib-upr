@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\StafPerpustakaan;
-use App\Http\Requests\StoreStafPerpustakaanRequest;
-use App\Http\Requests\UpdateStafPerpustakaanRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StafPerpustakaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = StafPerpustakaan::all();
@@ -22,69 +17,62 @@ class StafPerpustakaanController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'staf' => 'required',
+            ],
+            [
+                'staf.required' => 'Staf tidak boleh kosong',
+            ]
+        );
+
+
+        if ($validator) {
+            $result = StafPerpustakaan::create([
+                'staf' => $request->staf,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-staf')->with('StafSuccess', 'Tambah Staf Berhasil');
+            }
+            return redirect('/kelola-staf')->with('StafError', 'Tambah Staf Gagal');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreStafPerpustakaanRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreStafPerpustakaanRequest $request)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'staf' => 'required',
+            ],
+            [
+                'staf.required' => 'Staf tidak boleh kosong',
+            ]
+        );
+
+        if ($validator) {
+            $data = StafPerpustakaan::findOrFail($id);
+
+            $result = $data->update([
+                'staf' => $request->staf,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-staf')->with('StafSuccess', 'Edit Staf Berhasil');
+            }
+            return redirect('/kelola-staf')->with('StafError', 'Edit Staf Gagal');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\StafPerpustakaan  $stafPerpustakaan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(StafPerpustakaan $stafPerpustakaan)
+    public function read()
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\StafPerpustakaan  $stafPerpustakaan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(StafPerpustakaan $stafPerpustakaan)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateStafPerpustakaanRequest  $request
-     * @param  \App\Models\StafPerpustakaan  $stafPerpustakaan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateStafPerpustakaanRequest $request, StafPerpustakaan $stafPerpustakaan)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\StafPerpustakaan  $stafPerpustakaan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(StafPerpustakaan $stafPerpustakaan)
-    {
-        //
+        $data = StafPerpustakaan::all();
+        return view('pages/staf_perpustakaan', [
+            'data' => $data,
+        ]);
     }
 }
