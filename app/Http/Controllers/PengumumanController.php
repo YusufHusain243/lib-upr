@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
-use App\Http\Requests\StorePengumumanRequest;
-use App\Http\Requests\UpdatePengumumanRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PengumumanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = Pengumuman::all();
@@ -22,69 +17,97 @@ class PengumumanController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required|unique:pengumumen',
+                'tanggal' => 'required',
+                'pengumuman' => 'required',
+            ],
+            [
+                'judul.required' => 'Judul tidak boleh kosong',
+                'judul.unique' => 'Judul menu sudah ada',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'pengumuman.required' => 'Pengumuman tidak boleh kosong',
+            ]
+        );
+
+
+        if ($validator) {
+            $result = Pengumuman::create([
+                'judul' => $request->judul,
+                'tanggal' => $request->tanggal,
+                'isi' => $request->pengumuman,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-pengumuman')->with('PengumumanSuccess', 'Tambah Pengumuman Berhasil');
+            }
+            return redirect('/kelola-pengumuman')->with('PengumumanError', 'Tambah Pengumuman Gagal');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePengumumanRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePengumumanRequest $request)
+    public function edit($id)
     {
-        //
+        $data = Pengumuman::findOrFail($id);
+        return view('admin/pages/pengumuman/edit_pengumuman', [
+            'page' => 'kelola-pengumuman',
+            'data' => $data,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pengumuman  $pengumuman
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pengumuman $pengumuman)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'judul' => 'required|unique:pengumumen',
+                'tanggal' => 'required',
+                'pengumuman' => 'required',
+            ],
+            [
+                'judul.required' => 'Judul tidak boleh kosong',
+                'judul.unique' => 'Judul menu sudah ada',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'pengumuman.required' => 'Pengumuman tidak boleh kosong',
+            ]
+        );
+
+        if ($validator) {
+            $data = Pengumuman::findOrFail($id);
+
+            $result = $data->update([
+                'judul' => $request->judul,
+                'tanggal' => $request->tanggal,
+                'isi' => $request->pengumuman,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-pengumuman')->with('PengumumanSuccess', 'Edit Pengumuman Berhasil');
+            }
+            return redirect('/kelola-pengumuman')->with('PengumumanError', 'Edit Pengumuman Gagal');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pengumuman  $pengumuman
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pengumuman $pengumuman)
+    public function destroy($id)
     {
-        //
+        $data = Pengumuman::findOrFail($id);
+        if ($data) {
+            $result = $data->delete();
+            if ($result) {
+                return redirect('/kelola-pengumuman')->with('PengumumanSuccess', 'Hapus Data Berhasil');
+            }
+            return redirect('/kelola-pengumuman')->with('PengumumanError', 'Hapus Data Gagal');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePengumumanRequest  $request
-     * @param  \App\Models\Pengumuman  $pengumuman
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePengumumanRequest $request, Pengumuman $pengumuman)
+    public function read($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pengumuman  $pengumuman
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Pengumuman $pengumuman)
-    {
-        //
+        $data = Pengumuman::findOrFail($id);
+        return view('pages/pengumuman', [
+            'data' => $data,
+        ]);
     }
 }

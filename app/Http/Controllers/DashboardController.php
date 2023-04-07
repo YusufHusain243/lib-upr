@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        $data = Menu::all();
+        $menu = Menu::all();
+        $pengumuman = Pengumuman::all();
         return view('pages/home', [
             'page' => 'home',
-            'data' => $data,
+            'menu' => $menu,
+            'pengumuman' => $pengumuman,
         ]);
     }
 }

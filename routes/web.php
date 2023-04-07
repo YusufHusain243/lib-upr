@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'dashboard']);
+Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
 
 Route::get('/sejarah', function () {
     return view('pages/sejarah');
@@ -65,9 +66,11 @@ Route::get('/kelola-menu/{id}', [MenuController::class, 'edit']);
 Route::patch('/kelola-menu/{id}', [MenuController::class, 'update']);
 
 Route::get('/kelola-pengumuman', [PengumumanController::class, 'index']);
-Route::get('/edit-pengumuman', function () {
-    return view('admin/pages/pengumuman/edit_pengumuman');
-});
+Route::post('/kelola-pengumuman', [PengumumanController::class, 'store']);
+Route::delete('/kelola-pengumuman/{id}', [PengumumanController::class, 'destroy']);
+Route::get('/kelola-pengumuman/{id}', [PengumumanController::class, 'edit']);
+Route::patch('/kelola-pengumuman/{id}', [PengumumanController::class, 'update']);
+
 
 Route::get('/kelola-berita', [BeritaController::class, 'index']);
 Route::get('/edit-berita', function () {
