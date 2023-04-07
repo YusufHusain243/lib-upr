@@ -5,7 +5,7 @@
                 <h2 class="mb-4" style="color: #fbe03d"><strong>Perpustakaan Universitas Palangka Raya</strong></h2>
                 <p class="text-lg text-white mb-5">Pada website ini berisi tentang karya ilmiah dan jurnal yang ada di
                     Universitas Palangka Raya</p>
-                <a href="#menu" class="btn btn-primary" data-role="smoothscroll">Get Started</a>
+                <a href="#menu" class="btn btn-success" data-role="smoothscroll">Get Started</a>
             </div>
             <div class="col-md-6 py-5 wow zoomIn">
                 <div class="img-fluid text-center">

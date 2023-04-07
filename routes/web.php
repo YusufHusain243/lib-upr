@@ -31,6 +31,7 @@ Route::get('/agenda/{id}', [AgendaController::class, 'read']);
 Route::get('/galeri/{page}', [GaleriController::class, 'more']);
 Route::get('/sejarah', [SejarahController::class, 'read']);
 Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
+Route::get('/faq', [FAQController::class, 'read']);
 
 Route::get('/staf-perpustakaan', function () {
     return view('pages/staf_perpustakaan');
@@ -40,9 +41,9 @@ Route::get('/jejaring', function () {
     return view('pages/jejaring');
 });
 
-Route::get('/faq', function () {
-    return view('pages/faq');
-});
+// Route::get('/faq', function () {
+//     return view('pages/faq');
+// });
 
 
 
@@ -86,8 +87,6 @@ Route::delete('/kelola-galeri/{id}', [GaleriController::class, 'destroy']);
 Route::get('/kelola-galeri/{id}', [GaleriController::class, 'edit']);
 Route::patch('/kelola-galeri/{id}', [GaleriController::class, 'update']);
 
-
-
 Route::get('/kelola-sejarah', [SejarahController::class, 'index']);
 Route::post('/kelola-sejarah', [SejarahController::class, 'store']);
 Route::patch('/kelola-sejarah/{id}', [SejarahController::class, 'update']);
@@ -106,3 +105,5 @@ Route::get('/edit-jejaring', function () {
 });
 
 Route::get('/kelola-faq', [FAQController::class, 'index']);
+Route::post('/kelola-faq', [FAQController::class, 'store']);
+Route::patch('/kelola-faq/{id}', [FAQController::class, 'update']);
