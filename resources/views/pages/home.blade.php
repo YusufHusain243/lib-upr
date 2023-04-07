@@ -8,7 +8,7 @@
     <div class="page-section" id="menu">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section" style="color: #043507"><strong>Menu Kami</strong></h2>
+                <h2 class="title-section" style="color: #043507"><strong>{{ __('menu') }}</strong></h2>
                 <div class="divider mx-auto" style="background-color: #043507"></div>
             </div>
             <div class="row">
@@ -32,13 +32,13 @@
     <div class="page-section bg-light">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section" style="color: #043507"><strong>Informasi</strong></h2>
+                <h2 class="title-section" style="color: #043507"><strong>{{ __('informasi') }}</strong></h2>
                 <div class="divider mx-auto" style="background-color: #043507"></div>
             </div>
             <div class="row">
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
                     <div class="widget-box">
-                        <h4 class="widget-title" style="color: green">Pengumuman</h4>
+                        <h4 class="widget-title" style="color: green">{{ __('pengumuman') }}</h4>
                         <div class="divider bg-success"></div>
 
                         @foreach ($pengumuman as $p)
@@ -63,7 +63,7 @@
 
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
                     <div class="widget-box">
-                        <h4 class="widget-title" style="color: green">Berita</h4>
+                        <h4 class="widget-title" style="color: green">{{ __('berita') }}</h4>
                         <div class="divider bg-success"></div>
                         @foreach ($berita as $b)
                             <div class="blog-item">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
                     <div class="widget-box">
-                        <h4 class="widget-title" style="color: green">Agenda</h4>
+                        <h4 class="widget-title" style="color: green">{{ __('agenda') }}</h4>
                         <div class="divider bg-success"></div>
                         @foreach ($agenda as $a)
                             <div class="blog-item">
@@ -114,7 +114,7 @@
     <div class="page-section">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section" style="color: #043507">Galeri</h2>
+                <h2 class="title-section" style="color: #043507">{{ __('galeri') }}</h2>
                 <div class="divider mx-auto" style="background-color: #043507"></div>
             </div>
 
@@ -136,7 +136,7 @@
                     </div>
                 @endforeach
                 <div class="col-12 mt-4 text-center wow fadeInUp">
-                    <a href="/galeri/0" class="btn text-white" style="background-color: #043507">View More</a>
+                    <a href="/galeri/0" class="btn text-white" style="background-color: #043507">{{ __('view') }}</a>
                 </div>
             </div>
         </div>

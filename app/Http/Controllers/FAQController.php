@@ -70,6 +70,10 @@ class FAQController extends Controller
 
     public function read()
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = FAQ::all();
         return view('pages/faq', [
             'data' => $data,

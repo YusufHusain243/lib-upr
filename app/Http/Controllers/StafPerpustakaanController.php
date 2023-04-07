@@ -70,6 +70,10 @@ class StafPerpustakaanController extends Controller
 
     public function read()
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = StafPerpustakaan::all();
         return view('pages/staf_perpustakaan', [
             'data' => $data,

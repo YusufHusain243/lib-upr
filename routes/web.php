@@ -35,7 +35,7 @@ Route::get('/faq', [FAQController::class, 'read']);
 Route::get('/jejaring', [JejaringController::class, 'read']);
 Route::get('/staf-perpustakaan', [StafPerpustakaanController::class, 'read']);
 
-
+Route::get('/switch/{locale}', [DashboardController::class, 'switch']);
 
 Route::get('/dashboard', function () {
     return view('admin/pages/dashboard',[

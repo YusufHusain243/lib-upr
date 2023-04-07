@@ -29,7 +29,7 @@
                 </ul>
             </div>
             <div class="col-lg-3 py-3">
-                <h5>UNIT PELAYANAN TEKNIS & LEMBAGA</h5>
+                <h5>{{__('unit')}}</h5>
                 <ul class="footer-menu">
                     <li><a href="#">UPT. TIK</a></li>
                     <li><a href="#">UPT. BAHASA</a></li>

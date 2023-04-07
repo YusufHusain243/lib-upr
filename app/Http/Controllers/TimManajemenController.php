@@ -129,6 +129,10 @@ class TimManajemenController extends Controller
     }
 
     public function read(){
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = TimManajemen::all();
         return view('pages/tim_manajemen', [
             'data' => $data,

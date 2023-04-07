@@ -70,6 +70,10 @@ class SejarahController extends Controller
 
     public function read()
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Sejarah::all();
         return view('pages/sejarah', [
             'data' => $data,
