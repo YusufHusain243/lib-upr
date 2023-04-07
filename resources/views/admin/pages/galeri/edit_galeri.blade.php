@@ -22,20 +22,22 @@
             <div class="container-fluid">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Form Tambah Galeri</h3>
+                        <h3 class="card-title">Form Edit Galeri</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-galeri/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama Galeri</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Galeri">
+                                <label for="nama">Nama Galeri</label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data->title}}">
                             </div>
                             <div class="form-group">
-                                <label for="file">File input</label>
+                                <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="file">
-                                        <label class="custom-file-label" for="file">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="foto" name="foto" value="{{$data->foto}}">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
                             </div>

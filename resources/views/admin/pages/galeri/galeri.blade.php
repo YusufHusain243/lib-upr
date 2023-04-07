@@ -76,7 +76,7 @@
                                                 <td>
                                                     <div class="btn-group">
                                                         <div>
-                                                            <a href="/kelola-pengumuman/{{ $d->id }}" type="button"
+                                                            <a href="/kelola-galeri/{{ $d->id }}" type="button"
                                                                 class="btn btn-warning">Edit</a>
                                                         </div>
                                                         <form action="/kelola-galeri/{{ $d->id }}"
