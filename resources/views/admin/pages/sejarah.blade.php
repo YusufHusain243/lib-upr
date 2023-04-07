@@ -20,12 +20,24 @@
                                 <h3 class="card-title">Edit Isi Sejarah</h3>
                             </div>
                             <div class="card-body">
-                                <form action="">
-                                    <textarea id="sejarah">
-                                        Place <em>some</em> <u>text</u> <strong>here</strong>
-                                      </textarea>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                @if (count($data) == 0)
+                                    <form action="/kelola-sejarah" method="POST">
+                                        @csrf
+                                        <textarea id="sejarah" name="sejarah">
+                                            Place some text here
+                                        </textarea>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                @else
+                                    <form action="/kelola-sejarah/{{$data[0]->id}}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <textarea id="sejarah" name="sejarah">
+                                            {{ $data[0]->sejarah }}
+                                        </textarea>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>

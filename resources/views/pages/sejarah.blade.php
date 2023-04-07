@@ -16,24 +16,7 @@
                         <div class="divider"></div>
                         <div class="post-content">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate est exercitationem,
-                                repellendus, vero architecto omnis quo sapiente minima deserunt iure pariatur voluptate nam
-                                unde numquam corporis eos quisquam doloremque consequatur!
+                                {!! $data[0]->sejarah !!}
                             </p>
                         </div>
                     </div>
