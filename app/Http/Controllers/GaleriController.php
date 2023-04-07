@@ -67,39 +67,35 @@ class GaleriController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'nama' => 'required|unique:menus',
-                'url' => 'required',
-                'logo_menu' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+                'nama' => 'required|unique:galeris',
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'nama.required' => 'Nama tidak boleh kosong',
                 'nama.unique' => 'Nama menu sudah ada',
-
-                'url.required' => 'URL tidak boleh kosong',
             ]
         );
 
         if ($validator) {
             $data = Galeri::findOrFail($id);
 
-            if (file_exists(public_path('storage/images/' . $data->logo))) {
-                unlink(public_path('storage/images/' . $data->logo));
+            if (file_exists(public_path('storage/images/' . $data->foto))) {
+                unlink(public_path('storage/images/' . $data->foto));
 
-                $file_gambar = $request->logo_menu->getClientOriginalName();
+                $file_gambar = $request->foto->getClientOriginalName();
                 $file_name_asli = Str::slug(pathinfo($file_gambar, PATHINFO_FILENAME));
-                $name = uniqid() . $file_name_asli . '.' . $request->logo_menu->getClientOriginalExtension();
-                $request->logo_menu->move(public_path('storage/images'), $name);
+                $name = uniqid() . $file_name_asli . '.' . $request->foto->getClientOriginalExtension();
+                $request->foto->move(public_path('storage/images'), $name);
 
                 $data->update([
-                    'nama' => $request->nama,
-                    'url' => $request->url,
-                    'logo' => $name,
+                    'title' => $request->nama,
+                    'foto' => $name,
                 ]);
 
                 if ($data) {
-                    return redirect('/kelola-menu')->with('MenuSuccess', 'Edit Menu Berhasil');
+                    return redirect('/kelola-galeri')->with('GaleriSuccess', 'Edit Galeri Berhasil');
                 }
-                return redirect('/kelola-menu')->with('MenuError', 'Edit Menu Gagal');
+                return redirect('/kelola-galeri')->with('GaleriError', 'Edit Galeri Gagal');
             }
         }
     }
@@ -108,12 +104,20 @@ class GaleriController extends Controller
     {
         $data = Galeri::findOrFail($id);
         if ($data) {
+            unlink(public_path('storage/images/' . $data->foto));
             $result = $data->delete();
-            unlink(public_path('storage/images/' . $data->logo));
             if ($result) {
                 return redirect('/kelola-galeri')->with('GaleriSuccess', 'Hapus Data Berhasil');
             }
             return redirect('/kelola-galeri')->with('GaleriError', 'Hapus Data Gagal');
         }
+    }
+
+    public function more($page)
+    {
+        $data = Galeri::orderBy('id', 'desc')->get();
+        return view('pages/galeri', [
+            'data' => $data,
+        ]);
     }
 }
