@@ -36,14 +36,12 @@ Route::get('/jejaring', [JejaringController::class, 'read']);
 Route::get('/staf-perpustakaan', [StafPerpustakaanController::class, 'read']);
 
 
-Route::get('/admin', function () {
-    return view('admin/main');
-});
 
 Route::get('/dashboard', function () {
-    return view('admin/pages/dashboard');
+    return view('admin/pages/dashboard',[
+        'page' => 'dashboard',
+    ]);
 });
-
 
 Route::get('/kelola-menu', [MenuController::class, 'index']);
 Route::post('/kelola-menu', [MenuController::class, 'store']);

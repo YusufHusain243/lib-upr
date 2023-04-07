@@ -30,7 +30,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Menu</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-menu" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -41,7 +41,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Pengumuman</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-pengumuman" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -52,7 +52,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Berita</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-berita" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -63,7 +63,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Agenda</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-agenda" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -74,7 +74,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Galeri</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-galeri" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -85,7 +85,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Sejarah</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-sejarah" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -96,7 +96,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Tim Manajemen</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-tim-manajemen" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -107,7 +107,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Staf Perpustakaan</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-staf" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -118,7 +118,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola Jejaring</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-jejaring" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
@@ -129,7 +129,7 @@
                             <div class="inner mb-4">
                                 <h4>Kelola FAQ</h4>
                             </div>
-                            <a href="#" class="small-box-footer">
+                            <a href="/kelola-faq" class="small-box-footer">
                                 Go 
                                 <i class="fas fa-arrow-circle-right"></i>
                             </a>
