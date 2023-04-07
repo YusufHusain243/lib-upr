@@ -16,7 +16,9 @@
                         <div class="divider"></div>
                         <div class="post-content">
                             <p>
-                                {!! $data[0]->sejarah !!}
+                                @if (count($data) > 0)
+                                    {!! $data[0]->sejarah !!}
+                                @endif
                             </p>
                         </div>
                     </div>
