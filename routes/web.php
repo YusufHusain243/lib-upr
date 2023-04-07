@@ -85,11 +85,13 @@ Route::delete('/kelola-agenda/{id}', [AgendaController::class, 'destroy']);
 Route::get('/kelola-agenda/{id}', [AgendaController::class, 'edit']);
 Route::patch('/kelola-agenda/{id}', [AgendaController::class, 'update']);
 
-
 Route::get('/kelola-galeri', [GaleriController::class, 'index']);
-Route::get('/edit-galeri', function () {
-    return view('admin/pages/galeri/edit_galeri');
-});
+Route::post('/kelola-galeri', [GaleriController::class, 'store']);
+Route::delete('/kelola-galeri/{id}', [GaleriController::class, 'destroy']);
+Route::get('/kelola-galeri/{id}', [GaleriController::class, 'edit']);
+Route::patch('/kelola-galeri/{id}', [GaleriController::class, 'update']);
+
+
 
 Route::get('/kelola-sejarah', [SejarahController::class, 'index']);
 

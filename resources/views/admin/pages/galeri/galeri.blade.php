@@ -24,18 +24,20 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Galeri</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-galeri" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama Galeri</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Galeri">
+                                <label for="nama">Nama Galeri</label>
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan Nama Galeri">
                             </div>
                             <div class="form-group">
-                                <label for="file">File input</label>
+                                <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="file">
-                                        <label class="custom-file-label" for="file">Choose file</label>
+                                        <input type="file" class="custom-file-input" id="foto" name="foto">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
                             </div>
@@ -63,20 +65,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Galeri 1</td>
-                                            <td>
-                                                <img src="{{ asset('/assets/img/tes.jpeg') }}" alt=""
-                                                    srcset="">
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a href="/edit-galeri" type="button" class="btn btn-warning">Edit</a>
-                                                    <a href="/delete-galeri" type="button" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger">Hapus</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $d->title }}</td>
+                                                <td>
+                                                    <img src="storage/images/{{ $d->foto }}" class="img-fluid"
+                                                        width="150px">
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <div>
+                                                            <a href="/kelola-pengumuman/{{ $d->id }}" type="button"
+                                                                class="btn btn-warning">Edit</a>
+                                                        </div>
+                                                        <form action="/kelola-galeri/{{ $d->id }}"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                onclick="return confirm('Yakin Hapus Galeri Ini?');"
+                                                                class="btn btn-danger">
+                                                                Hapus
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
