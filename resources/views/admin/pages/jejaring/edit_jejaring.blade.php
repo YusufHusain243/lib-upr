@@ -24,28 +24,30 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Jejaring</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-jejaring/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Nama Jejaring</label>
-                                <input type="text" class="form-control" id="name" placeholder="Masukkan Nama Jejaring">
+                                <label for="nama">Nama Jejaringn</label>
+                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                             </div>
                             <div class="form-group">
-                                <label for="url">URL Jejaring</label>
-                                <input type="text" class="form-control" id="url" placeholder="Masukkan URL Jejaring">
+                                <label for="url">URL Jejaringn</label>
+                                <input type="text" class="form-control" id="url" name="url" value="{{$data->url}}">
                             </div>
                             <div class="form-group">
-                                <label for="foto">Foto Jejaring</label>
+                                <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="foto">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto" value="{{$data->logo}}">
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

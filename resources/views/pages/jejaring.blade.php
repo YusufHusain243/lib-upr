@@ -15,46 +15,20 @@
                         <h4 class="widget-title">Jejaring Kerja Sama Perpustakaan UPR</h4>
                         <div class="divider"></div>
                         <div class="post-content">
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content ml-5">
-                                    <h6 class="post-title"><a href="#">Anti-Corruption Clearing House (Portal Pengetahuan Antikorupsi)</a></h6>
+                            @foreach ($data as $d)
+                                <div class="blog-item">
+                                    <a class="post-thumb" href="">
+                                        <img src="/storage/images/{{$d->logo}}" class="img-fluid">
+                                    </a>
+                                    <div class="content ml-5">
+                                        <h6 class="post-title">
+                                            <a href="{{$d->url}}">
+                                               {{$d->nama}}
+                                            </a>
+                                        </h6>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content ml-5">
-                                    <h6 class="post-title"><a href="#">Anti-Corruption Clearing House (Portal Pengetahuan Antikorupsi)</a></h6>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content ml-5">
-                                    <h6 class="post-title"><a href="#">Anti-Corruption Clearing House (Portal Pengetahuan Antikorupsi)</a></h6>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content ml-5">
-                                    <h6 class="post-title"><a href="#">Anti-Corruption Clearing House (Portal Pengetahuan Antikorupsi)</a></h6>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <a class="post-thumb" href="">
-                                    <img src="../assets/img/blog/blog-1.jpg" alt="">
-                                </a>
-                                <div class="content ml-5">
-                                    <h6 class="post-title"><a href="#">Anti-Corruption Clearing House (Portal Pengetahuan Antikorupsi)</a></h6>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
