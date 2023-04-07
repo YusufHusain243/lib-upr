@@ -112,4 +112,12 @@ class GaleriController extends Controller
             return redirect('/kelola-galeri')->with('GaleriError', 'Hapus Data Gagal');
         }
     }
+
+    public function more($page)
+    {
+        $data = Galeri::orderBy('id', 'desc')->get();
+        return view('pages/galeri', [
+            'data' => $data,
+        ]);
+    }
 }
