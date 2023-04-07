@@ -29,10 +29,7 @@ Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
 Route::get('/berita/{id}', [BeritaController::class, 'read']);
 Route::get('/agenda/{id}', [AgendaController::class, 'read']);
 Route::get('/galeri/{page}', [GaleriController::class, 'more']);
-
-Route::get('/sejarah', function () {
-    return view('pages/sejarah');
-});
+Route::get('/sejarah', [SejarahController::class, 'read']);
 
 Route::get('/tim-manajemen', function () {
     return view('pages/tim_manajemen');
@@ -95,6 +92,8 @@ Route::patch('/kelola-galeri/{id}', [GaleriController::class, 'update']);
 
 
 Route::get('/kelola-sejarah', [SejarahController::class, 'index']);
+Route::post('/kelola-sejarah', [SejarahController::class, 'store']);
+Route::patch('/kelola-sejarah/{id}', [SejarahController::class, 'update']);
 
 Route::get('/kelola-tim-manajemen', [TimManajemenController::class, 'index']);
 Route::get('/edit-tim-manajemen', function () {
