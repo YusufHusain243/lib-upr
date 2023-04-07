@@ -24,26 +24,27 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Agenda</h3>
                     </div>
-                    <form>
+                    <form action="/kelola-agenda/{{$data->id}}" method="POST">
+                        @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Judul Agenda</label>
-                                <input type="text" class="form-control" id="title"
-                                    placeholder="Masukkan Judul Agenda">
+                                <label for="judul">Judul Agenda</label>
+                                <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
                             </div>
                             <div class="form-group">
-                                <label for="date">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="date">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
                             </div>
                             <div class="form-group">
                                 <label for="agenda">Agenda</label>
-                                <textarea id="agenda">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
+                                <textarea id="agenda" name="agenda">
+                                    {!!$data->isi!!}
                                 </textarea>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Edit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

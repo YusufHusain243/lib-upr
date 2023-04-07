@@ -88,43 +88,23 @@
                     <div class="widget-box">
                         <h4 class="widget-title" style="color: green">Agenda</h4>
                         <div class="divider bg-success"></div>
-
-                        <div class="blog-item">
-                            <div class="content">
-                                <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
-                                        no control</a></h6>
-                                <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                    <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
+                        @foreach ($agenda as $a)
+                            <div class="blog-item">
+                                <div class="content">
+                                    <h6 class="post-title">
+                                        <a href="/agenda/{{ $a->id }}"">
+                                            {{ $a->judul }}
+                                        </a>
+                                    </h6>
+                                    <div class="meta">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            <span class="mai-calendar"></span>
+                                            {{ $a->tanggal }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="blog-item">
-                            <div class="content">
-                                <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
-                                        no control</a></h6>
-                                <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                    <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blog-item">
-                            <div class="content">
-                                <h6 class="post-title"><a href="#">Even the all-powerful Pointing has
-                                        no control</a></h6>
-                                <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                    <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

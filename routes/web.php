@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'dashboard']);
 Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
 Route::get('/berita/{id}', [BeritaController::class, 'read']);
+Route::get('/agenda/{id}', [AgendaController::class, 'read']);
 
 Route::get('/sejarah', function () {
     return view('pages/sejarah');
@@ -78,11 +79,12 @@ Route::delete('/kelola-berita/{id}', [BeritaController::class, 'destroy']);
 Route::get('/kelola-berita/{id}', [BeritaController::class, 'edit']);
 Route::patch('/kelola-berita/{id}', [BeritaController::class, 'update']);
 
-
 Route::get('/kelola-agenda', [AgendaController::class, 'index']);
-Route::get('/edit-agenda', function () {
-    return view('admin/pages/agenda/edit_agenda');
-});
+Route::post('/kelola-agenda', [AgendaController::class, 'store']);
+Route::delete('/kelola-agenda/{id}', [AgendaController::class, 'destroy']);
+Route::get('/kelola-agenda/{id}', [AgendaController::class, 'edit']);
+Route::patch('/kelola-agenda/{id}', [AgendaController::class, 'update']);
+
 
 Route::get('/kelola-galeri', [GaleriController::class, 'index']);
 Route::get('/edit-galeri', function () {

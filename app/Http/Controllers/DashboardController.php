@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agenda;
 use App\Models\Berita;
 use App\Models\Menu;
 use App\Models\Pengumuman;
@@ -14,10 +15,12 @@ class DashboardController extends Controller
         $menu = Menu::all();
         $pengumuman = Pengumuman::all();
         $berita = Berita::all();
+        $agenda = Agenda::all();
         return view('pages/home', [
             'menu' => $menu,
             'pengumuman' => $pengumuman,
             'berita' => $berita,
+            'agenda' => $agenda,
         ]);
     }
 }

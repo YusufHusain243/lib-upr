@@ -18,7 +18,7 @@ class CreateAgendasTable extends Migration
             $table->timestamps();
             $table->string('judul');
             $table->date('tanggal');
-            $table->string('isi');
+            $table->longText('isi');
         });
     }
 
