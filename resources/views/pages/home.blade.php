@@ -8,8 +8,8 @@
     <div class="page-section" id="menu">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section"><strong>Menu Kami</strong></h2>
-                <div class="divider mx-auto"></div>
+                <h2 class="title-section text-success"><strong>Menu Kami</strong></h2>
+                <div class="divider mx-auto bg-success"></div>
             </div>
             <div class="row">
                 @foreach ($menu as $m)
@@ -32,8 +32,8 @@
     <div class="page-section bg-light">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section"><strong>Informasi</strong></h2>
-                <div class="divider mx-auto"></div>
+                <h2 class="title-section text-success"><strong>Informasi</strong></h2>
+                <div class="divider mx-auto bg-success"></div>
             </div>
             <div class="row">
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
@@ -114,8 +114,8 @@
     <div class="page-section">
         <div class="container">
             <div class="text-center wow fadeInUp">
-                <h2 class="title-section">Galeri</h2>
-                <div class="divider mx-auto"></div>
+                <h2 class="title-section text-success">Galeri</h2>
+                <div class="divider mx-auto bg-success"></div>
             </div>
 
             <div class="row mt-5">
@@ -136,7 +136,7 @@
                     </div>
                 @endforeach
                 <div class="col-12 mt-4 text-center wow fadeInUp">
-                    <a href="/galeri/0" class="btn btn-primary">View More</a>
+                    <a href="/galeri/0" class="btn btn-success">View More</a>
                 </div>
             </div>
         </div>

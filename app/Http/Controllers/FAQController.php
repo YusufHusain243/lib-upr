@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\FAQ;
-use App\Http\Requests\StoreFAQRequest;
-use App\Http\Requests\UpdateFAQRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FAQController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = FAQ::all();
@@ -22,69 +17,62 @@ class FAQController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'faq' => 'required',
+            ],
+            [
+                'faq.required' => 'FAQ tidak boleh kosong',
+            ]
+        );
+
+
+        if ($validator) {
+            $result = FAQ::create([
+                'faq' => $request->faq,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-faq')->with('FaqSuccess', 'Tambah FAQ Berhasil');
+            }
+            return redirect('/kelola-faq')->with('FaqError', 'Tambah FAQ Gagal');
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreFAQRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreFAQRequest $request)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'faq' => 'required',
+            ],
+            [
+                'faq.required' => 'FAQ tidak boleh kosong',
+            ]
+        );
+
+        if ($validator) {
+            $data = FAQ::findOrFail($id);
+
+            $result = $data->update([
+                'faq' => $request->faq,
+            ]);
+
+            if ($result) {
+                return redirect('/kelola-faq')->with('FaqSuccess', 'Edit FAQ Berhasil');
+            }
+            return redirect('/kelola-faq')->with('FaqError', 'Edit FAQ Gagal');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FAQ  $fAQ
-     * @return \Illuminate\Http\Response
-     */
-    public function show(FAQ $fAQ)
+    public function read()
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FAQ  $fAQ
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(FAQ $fAQ)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateFAQRequest  $request
-     * @param  \App\Models\FAQ  $fAQ
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateFAQRequest $request, FAQ $fAQ)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FAQ  $fAQ
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(FAQ $fAQ)
-    {
-        //
+        $data = FAQ::all();
+        return view('pages/faq', [
+            'data' => $data,
+        ]);
     }
 }

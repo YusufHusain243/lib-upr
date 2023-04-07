@@ -20,12 +20,24 @@
                                 <h3 class="card-title">Edit Isi FAQ</h3>
                             </div>
                             <div class="card-body">
-                                <form action="">
-                                    <textarea id="faq">
-                                        Place <em>some</em> <u>text</u> <strong>here</strong>
-                                      </textarea>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                @if (count($data) == 0)
+                                    <form action="/kelola-faq" method="POST">
+                                        @csrf
+                                        <textarea id="faq" name="faq">
+                                            Place some text here
+                                        </textarea>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                @else
+                                    <form action="/kelola-faq/{{ $data[0]->id }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <textarea id="faq" name="faq">
+                                            {{ $data[0]->faq }}
+                                        </textarea>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
