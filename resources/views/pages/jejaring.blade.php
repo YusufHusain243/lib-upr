@@ -12,8 +12,8 @@
             <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="widget-box">
-                        <h4 class="widget-title">Jejaring Kerja Sama Perpustakaan UPR</h4>
-                        <div class="divider"></div>
+                        <h4 class="widget-title" style="color: #0c7411">Jejaring Kerjasama Perpustakaan UPR</h4>
+                        <div class="divider" style="background-color: #1f8926"></div>
                         <div class="post-content">
                             @foreach ($data as $d)
                                 <div class="blog-item">

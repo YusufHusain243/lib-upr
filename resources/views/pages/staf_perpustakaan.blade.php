@@ -12,10 +12,12 @@
             <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="widget-box">
-                        <h4 class="widget-title">Staf Perpustakaan</h4>
-                        <div class="divider"></div>
+                        <h4 class="widget-title" style="color: #0c7411">Staf Perpustakaan UPR</h4>
+                        <div class="divider" style="background-color: #1f8926"></div>
                         <div class="post-content">
-                            {!! $data[0]->staf !!}
+                            <p class="text-dark">
+                                {!! $data[0]->staf !!}
+                            </p>
                         </div>
                     </div>
                 </div>
