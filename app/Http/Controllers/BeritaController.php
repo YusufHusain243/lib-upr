@@ -117,6 +117,10 @@ class BeritaController extends Controller
 
     public function read($id)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Berita::findOrFail($id);
         return view('pages/berita', [
             'data' => $data,

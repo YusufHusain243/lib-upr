@@ -121,6 +121,10 @@ class GaleriController extends Controller
 
     public function more($page)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Galeri::orderBy('id', 'desc')->get();
         return view('pages/galeri', [
             'data' => $data,

@@ -20,7 +20,11 @@
                             </div>
                             <div class="body">
                                 <h6 class="post-title">
-                                    {{ $d->title }}
+                                    @if (session('locale') !== null && session('locale') == 'id')
+                                        {{ $d->title }}
+                                    @else
+                                        {{ $d->title_en }}
+                                    @endif
                                 </h6>
                             </div>
                         </div>

@@ -117,6 +117,10 @@ class AgendaController extends Controller
 
     public function read($id)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Agenda::findOrFail($id);
         return view('pages/agenda', [
             'data' => $data,
