@@ -68,7 +68,9 @@
                                 </div>
                             </div>
                         @endforeach
-                        <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                         <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -97,7 +99,9 @@
                                 </div>
                             </div>
                         @endforeach
-                         <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                          <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
@@ -124,8 +128,67 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="blog-item">
+                                <div class="content">
+                                    <h6 class="post-title">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $a->judul }}
+                                            @else
+                                                {{ $a->judul_en }}
+                                            @endif
+                                        </a>
+                                    </h6>
+                                    <div class="meta">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            <span class="mai-calendar"></span>
+                                            {{ $a->tanggal }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-item">
+                                <div class="content">
+                                    <h6 class="post-title">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $a->judul }}
+                                            @else
+                                                {{ $a->judul_en }}
+                                            @endif
+                                        </a>
+                                    </h6>
+                                    <div class="meta">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            <span class="mai-calendar"></span>
+                                            {{ $a->tanggal }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-item">
+                                <div class="content">
+                                    <h6 class="post-title">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $a->judul }}
+                                            @else
+                                                {{ $a->judul_en }}
+                                            @endif
+                                        </a>
+                                    </h6>
+                                    <div class="meta">
+                                        <a href="/agenda/{{ $a->id }}">
+                                            <span class="mai-calendar"></span>
+                                            {{ $a->tanggal }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
-                         <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
