@@ -11,7 +11,11 @@
                         <div class="post-content">
                             <p class="text-dark">
                                 @if (count($data) > 0)
-                                    {!! $data[0]->faq !!}
+                                    @if (session('locale') !== null && session('locale') == 'id')
+                                        {!! $data[0]->faq !!}
+                                    @else
+                                        {!! $data[0]->faq_en !!}
+                                    @endif
                                 @endif
                             </p>
                         </div>

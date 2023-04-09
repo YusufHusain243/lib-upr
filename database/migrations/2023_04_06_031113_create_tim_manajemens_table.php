@@ -15,11 +15,12 @@ class CreateTimManajemensTable extends Migration
     {
         Schema::create('tim_manajemens', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('nama');
             $table->string('jabatan');
+            $table->string('jabatan_en');
             $table->string('email');
             $table->string('foto');
+            $table->timestamps();
         });
     }
 

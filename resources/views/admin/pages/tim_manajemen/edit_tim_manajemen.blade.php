@@ -37,6 +37,10 @@
                                 <input type="text" class="form-control" id="jabatan" name="jabatan" value="{{$data->jabatan}}">
                             </div>
                             <div class="form-group">
+                                <label for="jabatan_en">Jabatan (English)</label>
+                                <input type="text" class="form-control" id="jabatan_en" name="jabatan_en" value="{{$data->jabatan_en}}">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{$data->email}}">
                             </div>

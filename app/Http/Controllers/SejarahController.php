@@ -23,9 +23,11 @@ class SejarahController extends Controller
             $request->all(),
             [
                 'sejarah' => 'required',
+                'sejarah_en' => 'required',
             ],
             [
                 'sejarah.required' => 'Sejarah tidak boleh kosong',
+                'sejarah_en.required' => 'Sejarah (English) tidak boleh kosong',
             ]
         );
 
@@ -33,6 +35,7 @@ class SejarahController extends Controller
         if ($validator) {
             $result = Sejarah::create([
                 'sejarah' => $request->sejarah,
+                'sejarah_en' => $request->sejarah_en,
             ]);
 
             if ($result) {
@@ -48,9 +51,11 @@ class SejarahController extends Controller
             $request->all(),
             [
                 'sejarah' => 'required',
+                'sejarah_en' => 'required',
             ],
             [
                 'sejarah.required' => 'Sejarah tidak boleh kosong',
+                'sejarah_en.required' => 'Sejarah (English) tidak boleh kosong',
             ]
         );
 
@@ -59,6 +64,7 @@ class SejarahController extends Controller
 
             $result = $data->update([
                 'sejarah' => $request->sejarah,
+                'sejarah_en' => $request->sejarah_en,
             ]);
 
             if ($result) {
@@ -70,10 +76,10 @@ class SejarahController extends Controller
 
     public function read()
     {
-        if($locale = session('locale')){
+        if ($locale = session('locale')) {
             app()->setLocale($locale);
         }
-        
+
         $data = Sejarah::all();
         return view('pages/sejarah', [
             'data' => $data,

@@ -38,6 +38,11 @@
                                     placeholder="Masukkan Jabatan">
                             </div>
                             <div class="form-group">
+                                <label for="jabatan_en">Jabatan (English)</label>
+                                <input type="text" class="form-control" id="jabatan_en" name="jabatan_en"
+                                    placeholder="Masukkan Jabatan (English)">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="Masukkan Email">
@@ -71,6 +76,7 @@
                                             <th>No.</th>
                                             <th>Nama</th>
                                             <th>Jabatan</th>
+                                            <th>Jabatan (English)</th>
                                             <th>Email</th>
                                             <th>Foto</th>
                                             <th>Aksi</th>
@@ -82,6 +88,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->nama }}</td>
                                                 <td>{{ $d->jabatan }}</td>
+                                                <td>{{ $d->jabatan_en }}</td>
                                                 <td>{{ $d->email }}</td>
                                                 <td>
                                                     <img src="storage/images/{{ $d->foto }}" height="100px">

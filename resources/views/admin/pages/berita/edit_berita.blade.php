@@ -33,14 +33,24 @@
                                 <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
+                                <label for="judul_en">Judul Berita (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{$data->judul_en}}">
                             </div>
                             <div class="form-group">
                                 <label for="berita">Berita</label>
                                 <textarea id="berita" name="berita">
                                     {!!$data->isi!!}
                                 </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="berita_en">Berita (English)</label>
+                                <textarea id="berita_en" name="berita_en">
+                                    {!!$data->isi_en!!}
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -57,6 +67,7 @@
     <script>
         $(function() {
             $('#berita').summernote()
+            $('#berita_en').summernote()
         })
     </script>
 @endpush

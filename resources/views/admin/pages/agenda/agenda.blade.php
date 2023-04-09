@@ -33,14 +33,21 @@
                                     placeholder="Masukkan Judul Agenda">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                <label for="judul_en">Judul Agenda (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    placeholder="Masukkan Judul Agenda (English)">
                             </div>
                             <div class="form-group">
                                 <label for="agenda">Agenda</label>
-                                <textarea id="agenda" name="agenda">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                </textarea>
+                                <textarea id="agenda" name="agenda"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="agenda_en">Agenda (English)</label>
+                                <textarea id="agenda_en" name="agenda_en"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -61,8 +68,10 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Judul Agenda</th>
-                                            <th>Tanggal Posting</th>
+                                            <th>Judul Agenda (English)</th>
                                             <th>Isi Agenda</th>
+                                            <th>Isi Agenda (English)</th>
+                                            <th>Tanggal Posting</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -71,18 +80,17 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->judul }}</td>
+                                                <td>{{ $d->judul_en }}</td>
+                                                <td>{!! $d->isi !!}</td>
+                                                <td>{!! $d->isi_en !!}</td>
                                                 <td>{{ $d->tanggal }}</td>
-                                                <td>
-                                                    {!! $d->isi !!}
-                                                </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <div>
                                                             <a href="/kelola-agenda/{{ $d->id }}" type="button"
                                                                 class="btn btn-warning">Edit</a>
                                                         </div>
-                                                        <form action="/kelola-agenda/{{ $d->id }}"
-                                                            method="post">
+                                                        <form action="/kelola-agenda/{{ $d->id }}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
@@ -131,6 +139,7 @@
     <script>
         $(function() {
             $('#agenda').summernote()
+            $('#agenda_en').summernote()
         })
     </script>
 @endpush

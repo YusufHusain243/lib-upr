@@ -23,18 +23,32 @@
                                 @if (count($data) == 0)
                                     <form action="/kelola-sejarah" method="POST">
                                         @csrf
-                                        <textarea id="sejarah" name="sejarah">
-                                            Place some text here
-                                        </textarea>
+                                        <div class="form-group">
+                                            <label for="sejarah">Sejarah</label>
+                                            <textarea id="sejarah" name="sejarah"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sejarah_en">Sejarah (English)</label>
+                                            <textarea id="sejarah_en" name="sejarah_en"></textarea>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 @else
-                                    <form action="/kelola-sejarah/{{$data[0]->id}}" method="POST">
+                                    <form action="/kelola-sejarah/{{ $data[0]->id }}" method="POST">
                                         @csrf
                                         @method('PATCH')
-                                        <textarea id="sejarah" name="sejarah">
-                                            {{ $data[0]->sejarah }}
-                                        </textarea>
+                                        <div class="form-group">
+                                            <label for="sejarah">Sejarah</label>
+                                            <textarea id="sejarah" name="sejarah">
+                                                {{ $data[0]->sejarah }}
+                                            </textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sejarah_en">Sejarah (English)</label>
+                                            <textarea id="sejarah_en" name="sejarah_en">
+                                                {{ $data[0]->sejarah_en }}
+                                            </textarea>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 @endif
@@ -51,6 +65,7 @@
     <script>
         $(function() {
             $('#sejarah').summernote()
+            $('#sejarah_en').summernote()
         })
     </script>
 @endpush

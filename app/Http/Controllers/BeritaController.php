@@ -23,14 +23,18 @@ class BeritaController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:beritas',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'berita' => 'required',
+                'berita_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'berita.required' => 'Berita tidak boleh kosong',
+                'berita_en.required' => 'Berita (English) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -38,8 +42,10 @@ class BeritaController extends Controller
         if ($validator) {
             $result = Berita::create([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->berita,
+                'isi_en' => $request->berita_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {
@@ -64,14 +70,18 @@ class BeritaController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:beritas',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'berita' => 'required',
+                'berita_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'berita.required' => 'Berita tidak boleh kosong',
+                'berita_en.required' => 'Berita (English) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -80,8 +90,10 @@ class BeritaController extends Controller
 
             $result = $data->update([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->berita,
+                'isi_en' => $request->berita_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {

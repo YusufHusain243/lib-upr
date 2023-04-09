@@ -19,7 +19,13 @@
                                 <div class="body">
                                     <img src="storage/images/{{ $m->logo }}" class="mb-3" height="140px"
                                         width="140px">
-                                    <h6 style="color: #fbe03d">{{ $m->nama }}</h6>
+                                    <h6 style="color: #fbe03d">
+                                        @if (session('locale') !== null && session('locale') == 'id')
+                                            {{ $m->nama }}
+                                        @else
+                                            {{ $m->nama_en }}
+                                        @endif
+                                    </h6>
                                 </div>
                             </div>
                         </a>
@@ -45,8 +51,12 @@
                             <div class="blog-item">
                                 <div class="content">
                                     <h6 class="post-title">
-                                        <a href="/pengumuman/{{ $p->id }}"">
-                                            {{ $p->judul }}
+                                        <a href="/pengumuman/{{ $p->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $p->judul }}
+                                            @else
+                                                {{ $p->judul_en }}
+                                            @endif
                                         </a>
                                     </h6>
                                     <div class="meta">
@@ -69,8 +79,12 @@
                             <div class="blog-item">
                                 <div class="content">
                                     <h6 class="post-title">
-                                        <a href="/berita/{{ $b->id }}"">
-                                            {{ $b->judul }}
+                                        <a href="/berita/{{ $b->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $b->judul }}
+                                            @else
+                                                {{ $b->judul_en }}
+                                            @endif
                                         </a>
                                     </h6>
                                     <div class="meta">
@@ -92,8 +106,12 @@
                             <div class="blog-item">
                                 <div class="content">
                                     <h6 class="post-title">
-                                        <a href="/agenda/{{ $a->id }}"">
-                                            {{ $a->judul }}
+                                        <a href="/agenda/{{ $a->id }}">
+                                            @if (session('locale') !== null && session('locale') == 'id')
+                                                {{ $a->judul }}
+                                            @else
+                                                {{ $a->judul_en }}
+                                            @endif
                                         </a>
                                     </h6>
                                     <div class="meta">
@@ -129,7 +147,11 @@
                             </div>
                             <div class="body">
                                 <h6 class="post-title">
-                                    {{ $g->title }}
+                                    @if (session('locale') !== null && session('locale') == 'id')
+                                        {{ $g->title }}
+                                    @else
+                                        {{ $g->title_en }}
+                                    @endif
                                 </h6>
                             </div>
                         </div>

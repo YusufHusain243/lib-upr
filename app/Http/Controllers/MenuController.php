@@ -24,11 +24,13 @@ class MenuController extends Controller
             $request->all(),
             [
                 'nama' => 'required|unique:menus',
+                'nama_en' => 'required',
                 'url' => 'required',
                 'logo_menu' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'nama.required' => 'Nama tidak boleh kosong',
+                'nama_en.required' => 'Nama (English) tidak boleh kosong',
                 'nama.unique' => 'Nama menu sudah ada',
 
                 'url.required' => 'URL tidak boleh kosong',
@@ -46,6 +48,7 @@ class MenuController extends Controller
 
             $result = Menu::create([
                 'nama' => $request->nama,
+                'nama_en' => $request->nama_en,
                 'url' => $request->url,
                 'logo' => $name,
             ]);
@@ -72,11 +75,13 @@ class MenuController extends Controller
             $request->all(),
             [
                 'nama' => 'required|unique:menus',
+                'nama_en' => 'required',
                 'url' => 'required',
                 'logo_menu' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'nama.required' => 'Nama tidak boleh kosong',
+                'nama_en.required' => 'Nama (English) tidak boleh kosong',
                 'nama.unique' => 'Nama menu sudah ada',
 
                 'url.required' => 'URL tidak boleh kosong',
@@ -96,6 +101,7 @@ class MenuController extends Controller
 
                 $data->update([
                     'nama' => $request->nama,
+                    'nama_en' => $request->nama_en,
                     'url' => $request->url,
                     'logo' => $name,
                 ]);
