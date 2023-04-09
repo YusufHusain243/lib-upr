@@ -15,10 +15,10 @@ class CreateJejaringsTable extends Migration
     {
         Schema::create('jejarings', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('nama');
             $table->string('url');
             $table->string('logo');
+            $table->timestamps();
         });
     }
 

@@ -33,6 +33,11 @@
                                     placeholder="Masukkan Nama Menu">
                             </div>
                             <div class="form-group">
+                                <label for="nama_en">Nama Menu (English)</label>
+                                <input type="text" class="form-control" id="nama_en" name="nama_en"
+                                    placeholder="Masukkan Nama Menu (English)">
+                            </div>
+                            <div class="form-group">
                                 <label for="url">URL Menu</label>
                                 <input type="text" class="form-control" id="url" name="url"
                                     placeholder="Masukkan URL Menu">
@@ -65,6 +70,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Menu</th>
+                                            <th>Nama Menu (English)</th>
                                             <th>URL</th>
                                             <th>Logo Menu</th>
                                             <th>Aksi</th>
@@ -75,6 +81,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->nama }}</td>
+                                                <td>{{ $d->nama_en }}</td>
                                                 <td>
                                                     <a href="{{ $d->url }}">{{ $d->url }}</a>
                                                 </td>

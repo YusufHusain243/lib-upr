@@ -24,23 +24,36 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Pengumuman</h3>
                     </div>
-                    <form action="/kelola-pengumuman/{{$data->id}}" method="POST">
+                    <form action="/kelola-pengumuman/{{ $data->id }}" method="POST">
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="judul">Judul Pengumuman</label>
-                                <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
+                                <input type="text" class="form-control" id="judul" name="judul"
+                                    value="{{ $data->judul }}">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
+                                <label for="judul_en">Judul Pengumuman (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    value="{{ $data->judul_en }}">
                             </div>
                             <div class="form-group">
                                 <label for="pengumuman">Pengumuman</label>
                                 <textarea id="pengumuman" name="pengumuman">
-                                    {!!$data->isi!!}
+                                    {!! $data->isi !!}
                                 </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="pengumuman_en">Pengumuman (English)</label>
+                                <textarea id="pengumuman_en" name="pengumuman_en">
+                                    {!! $data->isi_en !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                    value="{{ $data->tanggal }}">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -57,6 +70,7 @@
     <script>
         $(function() {
             $('#pengumuman').summernote()
+            $('#pengumuman_en').summernote()
         })
     </script>
 @endpush

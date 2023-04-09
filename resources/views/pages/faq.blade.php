@@ -3,12 +3,6 @@
 @section('content')
     <div class="page-section pt-5">
         <div class="container">
-            <nav aria-label="Breadcrumb">
-                <ul class="breadcrumb p-0 mb-0 bg-transparent">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="blog.html">FAQ</a></li>
-                </ul>
-            </nav>
             <div class="row mt-3">
                 <div class="col-lg-12">
                     <div class="widget-box">
@@ -17,7 +11,11 @@
                         <div class="post-content">
                             <p class="text-dark">
                                 @if (count($data) > 0)
-                                    {!! $data[0]->faq !!}
+                                    @if (session('locale') !== null && session('locale') == 'id')
+                                        {!! $data[0]->faq !!}
+                                    @else
+                                        {!! $data[0]->faq_en !!}
+                                    @endif
                                 @endif
                             </p>
                         </div>

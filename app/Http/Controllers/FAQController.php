@@ -23,9 +23,11 @@ class FAQController extends Controller
             $request->all(),
             [
                 'faq' => 'required',
+                'faq_en' => 'required',
             ],
             [
                 'faq.required' => 'FAQ tidak boleh kosong',
+                'faq_en.required' => 'FAQ (English) tidak boleh kosong',
             ]
         );
 
@@ -33,6 +35,7 @@ class FAQController extends Controller
         if ($validator) {
             $result = FAQ::create([
                 'faq' => $request->faq,
+                'faq_en' => $request->faq_en,
             ]);
 
             if ($result) {
@@ -48,9 +51,11 @@ class FAQController extends Controller
             $request->all(),
             [
                 'faq' => 'required',
+                'faq_en' => 'required',
             ],
             [
                 'faq.required' => 'FAQ tidak boleh kosong',
+                'faq_en.required' => 'FAQ (English) tidak boleh kosong',
             ]
         );
 
@@ -59,6 +64,7 @@ class FAQController extends Controller
 
             $result = $data->update([
                 'faq' => $request->faq,
+                'faq_en' => $request->faq_en,
             ]);
 
             if ($result) {
@@ -70,6 +76,10 @@ class FAQController extends Controller
 
     public function read()
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = FAQ::all();
         return view('pages/faq', [
             'data' => $data,

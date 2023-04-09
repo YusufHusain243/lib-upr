@@ -15,10 +15,12 @@ class CreateAgendasTable extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('judul');
-            $table->date('tanggal');
+            $table->string('judul_en');
             $table->longText('isi');
+            $table->longText('isi_en');
+            $table->date('tanggal');
+            $table->timestamps();
         });
     }
 

@@ -33,6 +33,11 @@
                                     placeholder="Masukkan Nama Galeri">
                             </div>
                             <div class="form-group">
+                                <label for="nama_en">Nama Galeri(English)</label>
+                                <input type="text" class="form-control" id="nama_en" name="nama_en"
+                                    placeholder="Masukkan Nama Galeri(English)">
+                            </div>
+                            <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -60,6 +65,7 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Nama Galeri</th>
+                                            <th>Nama Galeri (English)</th>
                                             <th>Foto</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -69,6 +75,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->title }}</td>
+                                                <td>{{ $d->title_en }}</td>
                                                 <td>
                                                     <img src="storage/images/{{ $d->foto }}" class="img-fluid"
                                                         width="150px">

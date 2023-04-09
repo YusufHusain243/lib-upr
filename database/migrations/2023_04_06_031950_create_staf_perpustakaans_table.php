@@ -15,8 +15,9 @@ class CreateStafPerpustakaansTable extends Migration
     {
         Schema::create('staf_perpustakaans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->longText('staf');
+            $table->longText('staf_en');
+            $table->timestamps();
         });
     }
 

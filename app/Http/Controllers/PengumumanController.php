@@ -23,14 +23,18 @@ class PengumumanController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:pengumumen',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'pengumuman' => 'required',
+                'pengumuman_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'pengumuman.required' => 'Pengumuman tidak boleh kosong',
+                'pengumuman_en.required' => 'Pengumuman (Englosh) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -38,8 +42,10 @@ class PengumumanController extends Controller
         if ($validator) {
             $result = Pengumuman::create([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->pengumuman,
+                'isi_en' => $request->pengumuman_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {
@@ -64,14 +70,18 @@ class PengumumanController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:pengumumen',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'pengumuman' => 'required',
+                'pengumuman_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'pengumuman.required' => 'Pengumuman tidak boleh kosong',
+                'pengumuman_en.required' => 'Pengumuman (Englosh) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -80,8 +90,10 @@ class PengumumanController extends Controller
 
             $result = $data->update([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->pengumuman,
+                'isi_en' => $request->pengumuman_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {
@@ -105,6 +117,10 @@ class PengumumanController extends Controller
 
     public function read($id)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Pengumuman::findOrFail($id);
         return view('pages/pengumuman', [
             'data' => $data,

@@ -24,19 +24,26 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Galeri</h3>
                     </div>
-                    <form action="/kelola-galeri/{{$data->id}}" method="POST" enctype="multipart/form-data">
+                    <form action="/kelola-galeri/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="nama">Nama Galeri</label>
-                                <input type="text" class="form-control" id="nama" name="nama" value="{{$data->title}}">
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    value="{{ $data->title }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama_en">Nama Galeri (English)</label>
+                                <input type="text" class="form-control" id="nama_en" name="nama_en"
+                                    value="{{ $data->title_en }}">
                             </div>
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="foto" name="foto" value="{{$data->foto}}">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto"
+                                            value="{{ $data->foto }}">
                                         <label class="custom-file-label" for="foto">Choose file</label>
                                     </div>
                                 </div>

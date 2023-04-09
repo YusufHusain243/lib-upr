@@ -17,6 +17,7 @@ class CreateMenusTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nama');
+            $table->string('nama_en');
             $table->string('url');
             $table->string('logo');
         });

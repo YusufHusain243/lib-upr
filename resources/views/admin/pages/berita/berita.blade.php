@@ -33,14 +33,21 @@
                                     placeholder="Masukkan Judul Berita">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                <label for="judul_en">Judul Berita (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    placeholder="Masukkan Judul Berita (English)">
                             </div>
                             <div class="form-group">
                                 <label for="berita">Berita</label>
-                                <textarea id="berita" name="berita">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                </textarea>
+                                <textarea id="berita" name="berita"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="berita_en">Berita (English)</label>
+                                <textarea id="berita_en" name="berita_en"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -61,8 +68,10 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Judul Berita</th>
-                                            <th>Tanggal Posting</th>
+                                            <th>Judul Berita (English)</th>
                                             <th>Isi Berita</th>
+                                            <th>Isi Berita (English)</th>
+                                            <th>Tanggal Posting</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -71,18 +80,17 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->judul }}</td>
+                                                <td>{{ $d->judul_en }}</td>
+                                                <td>{!! $d->isi !!}</td>
+                                                <td>{!! $d->isi_en !!}</td>
                                                 <td>{{ $d->tanggal }}</td>
-                                                <td>
-                                                    {!! $d->isi !!}
-                                                </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <div>
                                                             <a href="/kelola-berita/{{ $d->id }}" type="button"
                                                                 class="btn btn-warning">Edit</a>
                                                         </div>
-                                                        <form action="/kelola-berita/{{ $d->id }}"
-                                                            method="post">
+                                                        <form action="/kelola-berita/{{ $d->id }}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
@@ -131,6 +139,7 @@
     <script>
         $(function() {
             $('#berita').summernote()
+            $('#berita_en').summernote()
         })
     </script>
 @endpush

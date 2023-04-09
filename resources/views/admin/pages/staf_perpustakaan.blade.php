@@ -23,18 +23,32 @@
                                 @if (count($data) == 0)
                                     <form action="/kelola-staf" method="POST">
                                         @csrf
-                                        <textarea id="staf" name="staf">
-                                            Place some text here
-                                        </textarea>
+                                        <div class="form-group">
+                                            <label for="staf">Staf</label>
+                                            <textarea id="staf" name="staf"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="staf_en">Staf (English)</label>
+                                            <textarea id="staf_en" name="staf_en"></textarea>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 @else
-                                    <form action="/kelola-staf/{{$data[0]->id}}" method="POST">
+                                    <form action="/kelola-staf/{{ $data[0]->id }}" method="POST">
                                         @csrf
                                         @method('PATCH')
-                                        <textarea id="staf" name="staf">
-                                            {{ $data[0]->staf }}
-                                        </textarea>
+                                        <div class="form-group">
+                                            <label for="staf">Staf</label>
+                                            <textarea id="staf" name="staf">
+                                                {{ $data[0]->staf }}
+                                            </textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="staf_en">Staf (English)</label>
+                                            <textarea id="staf_en" name="staf_en">
+                                                {{ $data[0]->staf_en }}
+                                            </textarea>
+                                        </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 @endif
@@ -51,6 +65,7 @@
     <script>
         $(function() {
             $('#staf').summernote()
+            $('#staf_en').summernote()
         })
     </script>
 @endpush

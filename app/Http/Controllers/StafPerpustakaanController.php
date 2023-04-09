@@ -23,9 +23,11 @@ class StafPerpustakaanController extends Controller
             $request->all(),
             [
                 'staf' => 'required',
+                'staf_en' => 'required',
             ],
             [
                 'staf.required' => 'Staf tidak boleh kosong',
+                'staf_en.required' => 'Staf (English) tidak boleh kosong',
             ]
         );
 
@@ -33,6 +35,7 @@ class StafPerpustakaanController extends Controller
         if ($validator) {
             $result = StafPerpustakaan::create([
                 'staf' => $request->staf,
+                'staf_en' => $request->staf_en,
             ]);
 
             if ($result) {
@@ -48,9 +51,11 @@ class StafPerpustakaanController extends Controller
             $request->all(),
             [
                 'staf' => 'required',
+                'staf_en' => 'required',
             ],
             [
                 'staf.required' => 'Staf tidak boleh kosong',
+                'staf_en.required' => 'Staf (English) tidak boleh kosong',
             ]
         );
 
@@ -59,6 +64,7 @@ class StafPerpustakaanController extends Controller
 
             $result = $data->update([
                 'staf' => $request->staf,
+                'staf_en' => $request->staf_en,
             ]);
 
             if ($result) {
@@ -70,6 +76,10 @@ class StafPerpustakaanController extends Controller
 
     public function read()
     {
+        if ($locale = session('locale')) {
+            app()->setLocale($locale);
+        }
+
         $data = StafPerpustakaan::all();
         return view('pages/staf_perpustakaan', [
             'data' => $data,

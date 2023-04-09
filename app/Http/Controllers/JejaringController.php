@@ -123,6 +123,10 @@ class JejaringController extends Controller
 
     public function read()
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Jejaring::all();
         return view('pages/jejaring', [
             'data' => $data,

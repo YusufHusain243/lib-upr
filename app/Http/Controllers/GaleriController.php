@@ -24,10 +24,12 @@ class GaleriController extends Controller
             $request->all(),
             [
                 'nama' => 'required|unique:galeris',
+                'nama_en' => 'required',
                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'nama.required' => 'Nama tidak boleh kosong',
+                'nama_en.required' => 'Nama (English) tidak boleh kosong',
                 'nama.unique' => 'Nama menu sudah ada',
             ]
         );
@@ -43,6 +45,7 @@ class GaleriController extends Controller
 
             $result = Galeri::create([
                 'title' => $request->nama,
+                'title_en' => $request->nama_en,
                 'foto' => $name,
             ]);
 
@@ -68,10 +71,12 @@ class GaleriController extends Controller
             $request->all(),
             [
                 'nama' => 'required|unique:galeris',
+                'nama_en' => 'required',
                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'nama.required' => 'Nama tidak boleh kosong',
+                'nama_en.required' => 'Nama (English) tidak boleh kosong',
                 'nama.unique' => 'Nama menu sudah ada',
             ]
         );
@@ -89,6 +94,7 @@ class GaleriController extends Controller
 
                 $data->update([
                     'title' => $request->nama,
+                    'title_en' => $request->nama_en,
                     'foto' => $name,
                 ]);
 
@@ -115,6 +121,10 @@ class GaleriController extends Controller
 
     public function more($page)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Galeri::orderBy('id', 'desc')->get();
         return view('pages/galeri', [
             'data' => $data,

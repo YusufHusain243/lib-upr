@@ -33,14 +33,21 @@
                                     placeholder="Masukkan Judul Pengumuman">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal">
+                                <label for="judul_en">Judul Pengumuman (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    placeholder="Masukkan Judul Pengumuman (English)">
                             </div>
                             <div class="form-group">
                                 <label for="pengumuman">Pengumuman</label>
-                                <textarea id="pengumuman" name="pengumuman">
-                                    Place <em>some</em> <u>text</u> <strong>here</strong>
-                                </textarea>
+                                <textarea id="pengumuman" name="pengumuman"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="pengumuman_en">Pengumuman (English)</label>
+                                <textarea id="pengumuman_en" name="pengumuman_en"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -61,8 +68,10 @@
                                         <tr>
                                             <th>No.</th>
                                             <th>Judul Pengumuman</th>
-                                            <th>Tanggal Posting</th>
+                                            <th>Judul Pengumuman (English)</th>
                                             <th>Isi Pengumuman</th>
+                                            <th>Isi Pengumuman (English)</th>
+                                            <th>Tanggal Posting</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -71,17 +80,18 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $d->judul }}</td>
+                                                <td>{{ $d->judul_en }}</td>
+                                                <td>{!! $d->isi !!}</td>
+                                                <td>{!! $d->isi_en !!}</td>
                                                 <td>{{ $d->tanggal }}</td>
-                                                <td>
-                                                    {!! $d->isi !!}
-                                                </td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <div>
                                                             <a href="/kelola-pengumuman/{{ $d->id }}" type="button"
                                                                 class="btn btn-warning">Edit</a>
                                                         </div>
-                                                        <form action="/kelola-pengumuman/{{ $d->id }}" method="post">
+                                                        <form action="/kelola-pengumuman/{{ $d->id }}"
+                                                            method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
@@ -130,6 +140,7 @@
     <script>
         $(function() {
             $('#pengumuman').summernote()
+            $('#pengumuman_en').summernote()
         })
     </script>
 @endpush

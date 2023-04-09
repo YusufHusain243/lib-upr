@@ -33,6 +33,10 @@
                                 <input type="text" class="form-control" id="nama" name="nama" value="{{$data->nama}}">
                             </div>
                             <div class="form-group">
+                                <label for="nama_en">Nama Menu (English)</label>
+                                <input type="text" class="form-control" id="nama_en" name="nama_en" value="{{$data->nama_en}}">
+                            </div>
+                            <div class="form-group">
                                 <label for="url">URL Menu</label>
                                 <input type="text" class="form-control" id="url" name="url" value="{{$data->url}}">
                             </div>

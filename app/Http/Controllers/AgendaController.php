@@ -23,14 +23,18 @@ class AgendaController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:agendas',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'agenda' => 'required',
+                'agenda_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'agenda.required' => 'Agenda tidak boleh kosong',
+                'agenda_en.required' => 'Agenda (English) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -38,8 +42,10 @@ class AgendaController extends Controller
         if ($validator) {
             $result = Agenda::create([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->agenda,
+                'isi_en' => $request->agenda_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {
@@ -64,14 +70,18 @@ class AgendaController extends Controller
             $request->all(),
             [
                 'judul' => 'required|unique:agendas',
-                'tanggal' => 'required',
+                'judul_en' => 'required',
                 'agenda' => 'required',
+                'agenda_en' => 'required',
+                'tanggal' => 'required',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
                 'judul.unique' => 'Judul menu sudah ada',
-                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'judul_en.required' => 'Judul (English) tidak boleh kosong',
                 'agenda.required' => 'Agenda tidak boleh kosong',
+                'agenda_en.required' => 'Agenda (English) tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
             ]
         );
 
@@ -80,8 +90,10 @@ class AgendaController extends Controller
 
             $result = $data->update([
                 'judul' => $request->judul,
-                'tanggal' => $request->tanggal,
+                'judul_en' => $request->judul_en,
                 'isi' => $request->agenda,
+                'isi_en' => $request->agenda_en,
+                'tanggal' => $request->tanggal,
             ]);
 
             if ($result) {
@@ -105,6 +117,10 @@ class AgendaController extends Controller
 
     public function read($id)
     {
+        if($locale = session('locale')){
+            app()->setLocale($locale);
+        }
+        
         $data = Agenda::findOrFail($id);
         return view('pages/agenda', [
             'data' => $data,

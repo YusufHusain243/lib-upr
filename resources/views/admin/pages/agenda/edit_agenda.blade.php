@@ -24,23 +24,36 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Agenda</h3>
                     </div>
-                    <form action="/kelola-agenda/{{$data->id}}" method="POST">
+                    <form action="/kelola-agenda/{{ $data->id }}" method="POST">
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="judul">Judul Agenda</label>
-                                <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
+                                <input type="text" class="form-control" id="judul" name="judul"
+                                    value="{{ $data->judul }}">
                             </div>
                             <div class="form-group">
-                                <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
+                                <label for="judul_en">Judul Agenda (English)</label>
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    value="{{ $data->judul_en }}">
                             </div>
                             <div class="form-group">
                                 <label for="agenda">Agenda</label>
                                 <textarea id="agenda" name="agenda">
-                                    {!!$data->isi!!}
+                                    {!! $data->isi !!}
                                 </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="agenda_en">Agenda (English)</label>
+                                <textarea id="agenda_en" name="agenda_en">
+                                    {!! $data->isi_en !!}
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal Posting</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                    value="{{ $data->tanggal }}">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -57,6 +70,7 @@
     <script>
         $(function() {
             $('#agenda').summernote()
+            $('#agenda_en').summernote()
         })
     </script>
 @endpush

@@ -26,6 +26,7 @@ class TimManajemenController extends Controller
             [
                 'nama' => 'required|unique:tim_manajemens',
                 'jabatan' => 'required',
+                'jabatan_en' => 'required',
                 'email' => 'required',
                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
@@ -34,6 +35,7 @@ class TimManajemenController extends Controller
                 'nama.unique' => 'Nama menu sudah ada',
 
                 'jabatan.required' => 'Jabatan tidak boleh kosong',
+                'jabatan_en.required' => 'Jabatan (English) tidak boleh kosong',
                 'email.required' => 'Email tidak boleh kosong',
             ]
         );
@@ -50,6 +52,7 @@ class TimManajemenController extends Controller
             $result = TimManajemen::create([
                 'nama' => $request->nama,
                 'jabatan' => $request->jabatan,
+                'jabatan_en' => $request->jabatan_en,
                 'email' => $request->email,
                 'foto' => $name,
             ]);
@@ -77,6 +80,7 @@ class TimManajemenController extends Controller
             [
                 'nama' => 'required|unique:tim_manajemens',
                 'jabatan' => 'required',
+                'jabatan_en' => 'required',
                 'email' => 'required',
                 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
@@ -85,6 +89,7 @@ class TimManajemenController extends Controller
                 'nama.unique' => 'Nama menu sudah ada',
 
                 'jabatan.required' => 'Jabatan tidak boleh kosong',
+                'jabatan_en.required' => 'Jabatan (English) tidak boleh kosong',
                 'email.required' => 'Email tidak boleh kosong',
             ]
         );
@@ -103,6 +108,7 @@ class TimManajemenController extends Controller
                 $data->update([
                     'nama' => $request->nama,
                     'jabatan' => $request->jabatan,
+                    'jabatan_en' => $request->jabatan_en,
                     'email' => $request->email,
                     'foto' => $name,
                 ]);
@@ -128,7 +134,12 @@ class TimManajemenController extends Controller
         }
     }
 
-    public function read(){
+    public function read()
+    {
+        if ($locale = session('locale')) {
+            app()->setLocale($locale);
+        }
+
         $data = TimManajemen::all();
         return view('pages/tim_manajemen', [
             'data' => $data,
