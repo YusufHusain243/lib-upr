@@ -119,15 +119,23 @@ class GaleriController extends Controller
         }
     }
 
-    public function more($page)
+    public function more($pageAktif = 2)
     {
-        if($locale = session('locale')){
+        if ($locale = session('locale')) {
             app()->setLocale($locale);
         }
-        
-        $data = Galeri::orderBy('id', 'desc')->get();
+
+        $dataAmountPage = 8;
+        $dataAmount = Galeri::all();
+        $pageAmount = ceil(count($dataAmount) / $dataAmountPage);
+
+        $firstData = ($dataAmountPage * $pageAktif) - $dataAmountPage;
+        $data = Galeri::skip($firstData)->take($dataAmountPage)->get();
+
         return view('pages/galeri', [
             'data' => $data,
+            'pageAmount' => $pageAmount,
+            'pageAktif' => $pageAktif,
         ]);
     }
 }

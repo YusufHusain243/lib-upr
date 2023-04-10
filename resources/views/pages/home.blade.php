@@ -128,63 +128,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="blog-item">
-                                <div class="content">
-                                    <h6 class="post-title">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $a->judul }}
-                                            @else
-                                                {{ $a->judul_en }}
-                                            @endif
-                                        </a>
-                                    </h6>
-                                    <div class="meta">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            <span class="mai-calendar"></span>
-                                            {{ $a->tanggal }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <div class="content">
-                                    <h6 class="post-title">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $a->judul }}
-                                            @else
-                                                {{ $a->judul_en }}
-                                            @endif
-                                        </a>
-                                    </h6>
-                                    <div class="meta">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            <span class="mai-calendar"></span>
-                                            {{ $a->tanggal }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-item">
-                                <div class="content">
-                                    <h6 class="post-title">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $a->judul }}
-                                            @else
-                                                {{ $a->judul_en }}
-                                            @endif
-                                        </a>
-                                    </h6>
-                                    <div class="meta">
-                                        <a href="/agenda/{{ $a->id }}">
-                                            <span class="mai-calendar"></span>
-                                            {{ $a->tanggal }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
                         @endforeach
                         <div class="d-flex justify-content-end">
                             <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
@@ -224,7 +167,7 @@
                     </div>
                 @endforeach
                 <div class="col-12 mt-4 text-center wow fadeInUp">
-                    <a href="/galeri/0" class="btn text-white" style="background-color: #043507">{{ __('view') }}</a>
+                    <a href="/galeri" class="btn text-white" style="background-color: #043507">{{ __('view') }}</a>
                 </div>
             </div>
         </div>
