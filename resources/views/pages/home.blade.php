@@ -170,7 +170,7 @@
                     </div>
                 @endforeach
                 <div class="col-12 mt-4 text-center wow fadeInUp">
-                    <a href="/galeri/0" class="btn text-white" style="background-color: #043507">{{ __('view') }}</a>
+                    <a href="/galeri" class="btn text-white" style="background-color: #043507">{{ __('view') }}</a>
                 </div>
             </div>
         </div>
