@@ -36,4 +36,23 @@ class DashboardController extends Controller
         Session::put('locale', $locale);
         return redirect()->back();
     }
+
+    public function information($page)
+    {
+        if ($locale = session('locale')) {
+            app()->setLocale($locale);
+        }
+        if ($page == 'pengumuman' || $page == 'announcement') {
+            $data = Pengumuman::orderBy('id', 'desc')->get();
+        }
+        if ($page == 'berita' || $page == 'news') {
+            $data = Berita::orderBy('id', 'desc')->get();
+        }
+        if ($page == 'agenda' || $page == 'agenda') {
+            $data = Agenda::orderBy('id', 'desc')->get();
+        }
+        return view('pages/list_information', [
+            'data' => $data,
+        ]);
+    }
 }
