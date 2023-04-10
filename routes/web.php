@@ -28,6 +28,7 @@ Route::get('/', [DashboardController::class, 'dashboard']);
 Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
 Route::get('/berita/{id}', [BeritaController::class, 'read']);
 Route::get('/agenda/{id}', [AgendaController::class, 'read']);
+Route::get('/galeri', [GaleriController::class, 'more']);
 Route::get('/galeri/{page}', [GaleriController::class, 'more']);
 Route::get('/sejarah', [SejarahController::class, 'read']);
 Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
