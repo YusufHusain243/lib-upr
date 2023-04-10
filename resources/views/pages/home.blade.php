@@ -68,7 +68,10 @@
                                 </div>
                             </div>
                         @endforeach
-                        <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{ __('info') }} <i
+                                    class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -97,7 +100,10 @@
                                 </div>
                             </div>
                         @endforeach
-                         <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{ __('info') }} <i
+                                    class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-4 col-lg-4 col-xl-4 py-12 wow zoomIn">
@@ -125,7 +131,10 @@
                                 </div>
                             </div>
                         @endforeach
-                         <a href="" style="color: #0c7411">View All <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="" style="color: #0c7411">{{ __('info') }} <i
+                                    class="bi bi-arrow-right-square"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
