@@ -119,7 +119,7 @@ class GaleriController extends Controller
         }
     }
 
-    public function more($pageAktif = 2)
+    public function more($pageAktif = 1)
     {
         if ($locale = session('locale')) {
             app()->setLocale($locale);

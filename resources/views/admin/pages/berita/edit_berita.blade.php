@@ -24,33 +24,46 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Berita</h3>
                     </div>
-                    <form action="/kelola-berita/{{$data->id}}" method="POST">
+                    <form action="/kelola-berita/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="judul">Judul Berita</label>
-                                <input type="text" class="form-control" id="judul" name="judul" value="{{$data->judul}}">
+                                <input type="text" class="form-control" id="judul" name="judul"
+                                    value="{{ $data->judul }}">
                             </div>
                             <div class="form-group">
                                 <label for="judul_en">Judul Berita (English)</label>
-                                <input type="text" class="form-control" id="judul_en" name="judul_en" value="{{$data->judul_en}}">
+                                <input type="text" class="form-control" id="judul_en" name="judul_en"
+                                    value="{{ $data->judul_en }}">
                             </div>
                             <div class="form-group">
                                 <label for="berita">Berita</label>
                                 <textarea id="berita" name="berita">
-                                    {!!$data->isi!!}
+                                    {!! $data->isi !!}
                                 </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="berita_en">Berita (English)</label>
                                 <textarea id="berita_en" name="berita_en">
-                                    {!!$data->isi_en!!}
+                                    {!! $data->isi_en !!}
                                 </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tanggal">Tanggal Posting</label>
-                                <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{$data->tanggal}}">
+                                <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                    value="{{ $data->tanggal }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="foto">File input</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto"
+                                            value="{{ $data->foto }}">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">

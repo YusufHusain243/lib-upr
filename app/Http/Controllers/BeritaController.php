@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
@@ -27,6 +28,7 @@ class BeritaController extends Controller
                 'berita' => 'required',
                 'berita_en' => 'required',
                 'tanggal' => 'required',
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
@@ -40,12 +42,20 @@ class BeritaController extends Controller
 
 
         if ($validator) {
+            if (isset($request->foto)) {
+                $file_gambar = $request->foto->getClientOriginalName();
+                $file_name_asli = Str::slug(pathinfo($file_gambar, PATHINFO_FILENAME));
+                $name = uniqid() . $file_name_asli . '.' . $request->foto->getClientOriginalExtension();
+                $request->foto->move(public_path('storage/images'), $name);
+            }
+
             $result = Berita::create([
                 'judul' => $request->judul,
                 'judul_en' => $request->judul_en,
                 'isi' => $request->berita,
                 'isi_en' => $request->berita_en,
                 'tanggal' => $request->tanggal,
+                'foto' => $name,
             ]);
 
             if ($result) {
@@ -74,6 +84,7 @@ class BeritaController extends Controller
                 'berita' => 'required',
                 'berita_en' => 'required',
                 'tanggal' => 'required',
+                'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
             ],
             [
                 'judul.required' => 'Judul tidak boleh kosong',
@@ -88,18 +99,28 @@ class BeritaController extends Controller
         if ($validator) {
             $data = Berita::findOrFail($id);
 
-            $result = $data->update([
-                'judul' => $request->judul,
-                'judul_en' => $request->judul_en,
-                'isi' => $request->berita,
-                'isi_en' => $request->berita_en,
-                'tanggal' => $request->tanggal,
-            ]);
+            if (file_exists(public_path('storage/images/' . $data->foto))) {
+                unlink(public_path('storage/images/' . $data->foto));
 
-            if ($result) {
-                return redirect('/kelola-berita')->with('BeritaSuccess', 'Edit Berita Berhasil');
+                $file_gambar = $request->foto->getClientOriginalName();
+                $file_name_asli = Str::slug(pathinfo($file_gambar, PATHINFO_FILENAME));
+                $name = uniqid() . $file_name_asli . '.' . $request->foto->getClientOriginalExtension();
+                $request->foto->move(public_path('storage/images'), $name);
+
+                $result = $data->update([
+                    'judul' => $request->judul,
+                    'judul_en' => $request->judul_en,
+                    'isi' => $request->berita,
+                    'isi_en' => $request->berita_en,
+                    'tanggal' => $request->tanggal,
+                    'foto' => $name,
+                ]);
+
+                if ($result) {
+                    return redirect('/kelola-berita')->with('BeritaSuccess', 'Edit Berita Berhasil');
+                }
+                return redirect('/kelola-berita')->with('BeritaError', 'Edit Berita Gagal');
             }
-            return redirect('/kelola-berita')->with('BeritaError', 'Edit Berita Gagal');
         }
     }
 
@@ -108,6 +129,7 @@ class BeritaController extends Controller
         $data = Berita::findOrFail($id);
         if ($data) {
             $result = $data->delete();
+            unlink(public_path('storage/images/' . $data->foto));
             if ($result) {
                 return redirect('/kelola-berita')->with('BeritaSuccess', 'Hapus Data Berhasil');
             }
@@ -117,10 +139,10 @@ class BeritaController extends Controller
 
     public function read($id)
     {
-        if($locale = session('locale')){
+        if ($locale = session('locale')) {
             app()->setLocale($locale);
         }
-        
+
         $data = Berita::findOrFail($id);
         return view('pages/berita', [
             'data' => $data,

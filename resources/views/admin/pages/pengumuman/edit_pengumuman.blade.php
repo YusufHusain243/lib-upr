@@ -24,7 +24,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Edit Pengumuman</h3>
                     </div>
-                    <form action="/kelola-pengumuman/{{ $data->id }}" method="POST">
+                    <form action="/kelola-pengumuman/{{ $data->id }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="card-body">
@@ -54,6 +54,16 @@
                                 <label for="tanggal">Tanggal Posting</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal"
                                     value="{{ $data->tanggal }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="foto">File input</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto"
+                                            value="{{ $data->foto }}">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">
