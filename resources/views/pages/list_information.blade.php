@@ -5,8 +5,12 @@
         <div class="container">
             <nav aria-label="Breadcrumb">
                 <ul class="breadcrumb p-0 mb-0 bg-transparent">
-                    <li class="breadcrumb-item"><p style="color: #043507">Home</p></li>
-                    <li class="breadcrumb-item"><p style="color: #043507">Galeri</p></li>
+                    <li class="breadcrumb-item">
+                        <p style="color: #043507">Home</p>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <p style="color: #043507">{{__($page)}}</p>
+                    </li>
                 </ul>
             </nav>
             <div class="row my-5">
@@ -19,13 +23,15 @@
                                 </div>
                             </div>
                             <div class="body">
-                                <h6 class="post-title">
-                                    @if (session('locale') !== null && session('locale') == 'id')
-                                        {{ $d->title }}
-                                    @else
-                                        {{ $d->title_en }}
-                                    @endif
-                                </h6>
+                                <a href="/{{$page}}/{{ $d->id }}">
+                                    <h6 class="post-title">
+                                        @if (session('locale') !== null && session('locale') == 'id')
+                                            {{ $d->judul }}
+                                        @else
+                                            {{ $d->judul_en }}
+                                        @endif
+                                    </h6>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -36,23 +42,25 @@
                 <ul class="pagination justify-content-center">
                     @if ($pageAktif > 1)
                         <li class="page-item">
-                            <a class="page-link" href="/galeri/{{ $pageAktif - 1 }}">Previous</a>
+                            <a class="page-link" href="/page/{{ $page }}/{{ $pageAktif - 1 }}">Previous</a>
                         </li>
                     @endif
 
                     @for ($i = 1; $i <= $pageAmount; $i++)
                         @if ($pageAktif == $i)
                             <li class="page-item active"><a
-                                    class="page-link"href="/galeri/{{ $i }}">{{ $i }}</a></li>
+                                    class="page-link"href="/page/{{ $page }}/{{ $i }}">{{ $i }}</a>
+                            </li>
                         @else
                             <li class="page-item"><a
-                                    class="page-link"href="/galeri/{{ $i }}">{{ $i }}</a></li>
+                                    class="page-link"href="/page/{{ $page }}/{{ $i }}">{{ $i }}</a>
+                            </li>
                         @endif
                     @endfor
 
                     @if ($pageAktif < $pageAmount)
                         <li class="page-item">
-                            <a class="page-link" href="/galeri/{{ $pageAktif + 1 }}">Next</a>
+                            <a class="page-link" href="/page/{{ $page }}/{{ $pageAktif + 1 }}">Next</a>
                         </li>
                     @endif
                 </ul>

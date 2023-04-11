@@ -24,7 +24,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Form Tambah Pengumuman</h3>
                     </div>
-                    <form action="/kelola-pengumuman" method="POST">
+                    <form action="/kelola-pengumuman" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -49,6 +49,15 @@
                                 <label for="tanggal">Tanggal Posting</label>
                                 <input type="date" class="form-control" id="tanggal" name="tanggal">
                             </div>
+                            <div class="form-group">
+                                <label for="foto">File input</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="foto" name="foto">
+                                        <label class="custom-file-label" for="foto">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -72,6 +81,7 @@
                                             <th>Isi Pengumuman</th>
                                             <th>Isi Pengumuman (English)</th>
                                             <th>Tanggal Posting</th>
+                                            <th>Foto</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -84,6 +94,7 @@
                                                 <td>{!! $d->isi !!}</td>
                                                 <td>{!! $d->isi_en !!}</td>
                                                 <td>{{ $d->tanggal }}</td>
+                                                <td><img src="/storage/images/{{ $d->foto }}" width="100px"></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <div>
