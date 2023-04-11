@@ -43,7 +43,7 @@ class DashboardController extends Controller
             app()->setLocale($locale);
         }
 
-        $dataAmountPage = 2;
+        $dataAmountPage = 8;
 
         if ($page == 'pengumuman' || $page == 'announcement') {
             $dataAmount = Pengumuman::all();
