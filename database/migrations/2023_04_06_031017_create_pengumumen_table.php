@@ -20,6 +20,7 @@ class CreatePengumumenTable extends Migration
             $table->longText('isi');
             $table->longText('isi_en');
             $table->date('tanggal');
+            $table->string('foto');
             $table->timestamps();
         });
     }

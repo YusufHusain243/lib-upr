@@ -28,13 +28,18 @@ Route::get('/', [DashboardController::class, 'dashboard']);
 Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
 Route::get('/berita/{id}', [BeritaController::class, 'read']);
 Route::get('/agenda/{id}', [AgendaController::class, 'read']);
+
 Route::get('/galeri', [GaleriController::class, 'more']);
 Route::get('/galeri/{page}', [GaleriController::class, 'more']);
+
 Route::get('/sejarah', [SejarahController::class, 'read']);
 Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
 Route::get('/faq', [FAQController::class, 'read']);
 Route::get('/jejaring', [JejaringController::class, 'read']);
 Route::get('/staf-perpustakaan', [StafPerpustakaanController::class, 'read']);
+
+Route::get('/page/{page}', [DashboardController::class, 'information']);
+Route::get('/page/{page}/{p}', [DashboardController::class, 'information']);
 
 Route::get('/switch/{locale}', [DashboardController::class, 'switch']);
 

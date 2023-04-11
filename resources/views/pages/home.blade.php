@@ -53,9 +53,10 @@
                                     <h6 class="post-title">
                                         <a href="/pengumuman/{{ $p->id }}">
                                             @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $p->judul }}
+                                                {{-- {{ $p->judul }} --}}
+                                                {{ \Illuminate\Support\Str::limit($p->judul, 70, $end = '...') }}
                                             @else
-                                                {{ $p->judul_en }}
+                                                {{ \Illuminate\Support\Str::limit($p->judul_en, 70, $end = '...') }}
                                             @endif
                                         </a>
                                     </h6>
@@ -68,8 +69,9 @@
                                 </div>
                             </div>
                         @endforeach
-                         <div class="d-flex justify-content-end">
-                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="/page/{{ strtolower(__('pengumuman')) }}" style="color: #0c7411">{{ __('info') }}
+                                <i class="bi bi-arrow-right-square"></i></a>
                         </div>
                     </div>
                 </div>
@@ -84,9 +86,10 @@
                                     <h6 class="post-title">
                                         <a href="/berita/{{ $b->id }}">
                                             @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $b->judul }}
+                                                {{-- {{ $b->judul }} --}}
+                                                {{ \Illuminate\Support\Str::limit($b->judul, 70, $end = '...') }}
                                             @else
-                                                {{ $b->judul_en }}
+                                                {{ \Illuminate\Support\Str::limit($b->judul_en, 70, $end = '...') }}
                                             @endif
                                         </a>
                                     </h6>
@@ -99,8 +102,9 @@
                                 </div>
                             </div>
                         @endforeach
-                          <div class="d-flex justify-content-end">
-                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                        <div class="d-flex justify-content-end">
+                            <a href="/page/{{ strtolower(__('berita')) }}" style="color: #0c7411">{{ __('info') }} <i
+                                    class="bi bi-arrow-right-square"></i></a>
                         </div>
                     </div>
                 </div>
@@ -114,9 +118,11 @@
                                     <h6 class="post-title">
                                         <a href="/agenda/{{ $a->id }}">
                                             @if (session('locale') !== null && session('locale') == 'id')
-                                                {{ $a->judul }}
+                                                {{-- {{ $a->judul }} --}}
+                                                {{ \Illuminate\Support\Str::limit($a->judul, 70, $end = '...') }}
                                             @else
-                                                {{ $a->judul_en }}
+                                                {{-- {{ $a->judul_en }} --}}
+                                                {{ \Illuminate\Support\Str::limit($a->judul_en, 70, $end = '...') }}
                                             @endif
                                         </a>
                                     </h6>
@@ -130,7 +136,8 @@
                             </div>
                         @endforeach
                         <div class="d-flex justify-content-end">
-                            <a href="" style="color: #0c7411">{{__('info')}} <i class="bi bi-arrow-right-square"></i></a>
+                            <a href="/page/{{ strtolower(__('agenda')) }}" style="color: #0c7411">{{ __('info') }} <i
+                                    class="bi bi-arrow-right-square"></i></a>
                         </div>
                     </div>
                 </div>
