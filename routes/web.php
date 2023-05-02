@@ -25,30 +25,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'dashboard']);
-Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
-Route::get('/berita/{id}', [BeritaController::class, 'read']);
-Route::get('/agenda/{id}', [AgendaController::class, 'read']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/galeri', [GaleriController::class, 'more']);
-Route::get('/galeri/{page}', [GaleriController::class, 'more']);
+    Route::get('/', [DashboardController::class, 'dashboard']);
+    Route::get('/pengumuman/{id}', [PengumumanController::class, 'read']);
+    Route::get('/berita/{id}', [BeritaController::class, 'read']);
+    Route::get('/agenda/{id}', [AgendaController::class, 'read']);
+    
+    Route::get('/galeri', [GaleriController::class, 'more']);
+    Route::get('/galeri/{page}', [GaleriController::class, 'more']);
+    
+    Route::get('/sejarah', [SejarahController::class, 'read']);
+    Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
+    Route::get('/faq', [FAQController::class, 'read']);
+    Route::get('/jejaring', [JejaringController::class, 'read']);
+    Route::get('/staf-perpustakaan', [StafPerpustakaanController::class, 'read']);
+    
+    Route::get('/page/{page}', [DashboardController::class, 'information']);
+    Route::get('/page/{page}/{p}', [DashboardController::class, 'information']);
+    
+    Route::get('/switch/{locale}', [DashboardController::class, 'switch']);
+});
 
-Route::get('/sejarah', [SejarahController::class, 'read']);
-Route::get('/tim-manajemen', [TimManajemenController::class, 'read']);
-Route::get('/faq', [FAQController::class, 'read']);
-Route::get('/jejaring', [JejaringController::class, 'read']);
-Route::get('/staf-perpustakaan', [StafPerpustakaanController::class, 'read']);
-
-Route::get('/page/{page}', [DashboardController::class, 'information']);
-Route::get('/page/{page}/{p}', [DashboardController::class, 'information']);
-
-Route::get('/switch/{locale}', [DashboardController::class, 'switch']);
-
-
-
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
-Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', function () {
@@ -57,6 +57,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ]);
     });
     
+    Route::get('/logout', [LoginController::class, 'logout']);
+
     Route::get('/kelola-menu', [MenuController::class, 'index']);
     Route::post('/kelola-menu', [MenuController::class, 'store']);
     Route::delete('/kelola-menu/{id}', [MenuController::class, 'destroy']);
